@@ -1,0 +1,192 @@
+/*...............................................................................
+Global styles 
+...............................................................................*/
+
+html,
+body {
+  -webkit-overflow-scrolling: touch !important;
+}
+* {
+  box-sizing: border-box;
+}
+
+li,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select option {
+  color: #000;
+}
+select:focus {
+  outline: 0;
+}
+
+div,
+p,
+ul,
+ol,
+li,
+nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+  font-size: inherit;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease-out;
+}
+
+a:hover {
+  transition: all 0.3s ease-out;
+}
+
+button {
+  display: block;
+  float: left;
+  border: 0;
+  padding: 0;
+  transition: all 0.3s ease-out;
+}
+button:focus {
+  outline: 0;
+}
+button:active {
+  outline: 0;
+}
+button:hover {
+  transition: all 0.3s ease-out;
+}
+a:hover,
+button:hover {
+  cursor: pointer;
+}
+a:hover *,
+button:hover * {
+  cursor: pointer;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1440px;
+  float: none;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-size: 16px;
+}
+.title {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+.subtitle {
+  font-size: 18px;
+  color: rgba(74, 74, 74, 0.58);
+}
+.section_content {
+  margin-top: 36px;
+}
+.container {
+  overflow: hidden;
+}
+.page {
+  padding-bottom: 20px;
+}
+
+/*...............................................................................
+MAIN PAGE
+...............................................................................*/
+
+/* 
+.main_slider .slider_wrap .slide .bg-img {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+  transform: scale(1.2);
+} */
+/* 
+.main_slider .slider_wrap .slide .wrap_float {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+}
+.main_slider .slider_wrap .slide .slide_content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 140px;
+}
+.main_slider .slider_wrap .slide .slide_content .title_wrap .slide_title {
+  font-size: 157px;
+  font-family: "Prata", serif;
+  color: #fff;
+  width: auto;
+  line-height: 1;
+}
+.main_slider .slider_wrap .slide .slide_content .title_wrap .country {
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  width: auto;
+  top: -64px;
+  text-align: right;
+  padding-left: 18px;
+} */
+
+.landing {
+  width: 100%;
+  /* min-height: 100vh; */
+  position: relative;
+}
+
+.slide_content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0rem 0rem 8rem 10rem;
+}
+
+.country {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  /* padding-left: 4rem; */
+}
+
+.slide_title {
+  color: white;
+  font-size: 6rem;
+  font-weight: 600;
+}
+.top-heading {
+  font-family: "Prata", serif;
+  font-weight: 800;
+}
+
+h5 {
+  color: red;
+}

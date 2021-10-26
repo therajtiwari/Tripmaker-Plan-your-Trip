@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="triplocations.xsl"?>
+<TripLocation>
+<trip>
+	<name>New York</name>
+	<country>USA</country>
+	<cost>Rs 70,000</cost>
+	<days>8</days>
+	<tickets_available>43</tickets_available>
+</trip>
+<trip >
+<name>Mumbai</name>
+	<country>India</country>
+	<cost>Rs 30,000</cost>
+	<days>29</days>
+	<tickets_available>53</tickets_available>
+</trip>
+<trip >
+<name>Paris</name>
+	<country>France</country>
+	<cost>Rs 50,000</cost>
+	<days>10</days>
+	<tickets_available>23</tickets_available>
+</trip>
+<trip >
+	<name>London</name>
+	<country>UK</country>
+	<cost>Rs 90,000</cost>
+	<days>9</days>
+	<tickets_available>56</tickets_available>
+</trip>
+<trip >
+	<name>Delhi</name>
+	<country>India</country>
+	<cost>Rs 10,000</cost>
+	<days>9</days>
+	<tickets_available>67</tickets_available>
+</trip>
+</TripLocation>
