@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
 </head>
 
 <body>
-<?php
+    <?php
 function makeconnection()
 {
 	$cn=mysqli_connect("localhost","root","","travels","3306");
@@ -14,17 +15,18 @@ function makeconnection()
 	{
 		echo "failed to connect to mysqli:".mysqli_connect_error();
 	} else {
-		echo "Successful";
+		echo "Successful ";
+        echo "<br>";
 	}
 	return $cn;
 }
-function add_user($fname,$lname,$age,$gender,$email,$phone,$password)
+function add_user($fname,$lname,$age,$gender,$email,$password)
 {   
     $cn=mysqli_connect("localhost","root","","travels","3306");
-	// $sql = "INSERT INTO user_info (fname, lname, age, gender, email, phone, password)
-    // VALUES ($fname,$lname,$age,$gender,$email,$phone,$password);";
+	$sql = "INSERT INTO user_info (fname, lname, age, gender, email, password)
+    VALUES ('$fname','$lname','$age','$gender','$email',SHA2('$password',256));";
     // VALUES ('axon', 'blaze', 21,'male','axon@example.com','90','hello')";
-    $sql = "INSERT INTO `user_info`(`fname`, `lname`, `age`, `gender`, `email`, `phone`, `password`) VALUES ('axon', 'blaze', 21,'male','axon@example.com','909202932039','hello')";
+    // $sql = "INSERT INTO `user_info`(`fname`, `lname`, `age`, `gender`, `email`, `phone`, `password`) VALUES ('axon', 'blaze', 21,'male','axon@example.com','909202932039','hello')";
     if ($cn->query($sql) === TRUE) {
     echo "New record created successfully";
     } else {
@@ -37,4 +39,5 @@ $cn = makeconnection();
 add_user("axon", "blaze", 21,"male","axon@example.com","909202932039","hello");
 ?>
 </body>
+
 </html>
