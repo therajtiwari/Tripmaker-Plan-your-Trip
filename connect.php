@@ -21,10 +21,10 @@ function makeconnection()
 function add_user($fname,$lname,$age,$gender,$email,$phone,$password)
 {   
     $cn=mysqli_connect("localhost","root","","travels","3306");
-	$sql = "INSERT INTO user_info (fname, lname, age, gender, email, phone, password)
-    VALUES ($fname,$lname,$age,$gender,$email,$phone,$password)";
+	// $sql = "INSERT INTO user_info (fname, lname, age, gender, email, phone, password)
+    // VALUES ($fname,$lname,$age,$gender,$email,$phone,$password);";
     // VALUES ('axon', 'blaze', 21,'male','axon@example.com','90','hello')";
-    // $sql = "INSERT INTO `user_info`(`fname`, `lname`, `age`, `gender`, `email`, `password`) VALUES ($fname,$lname,$age,$gender,$email,$phone,$password)";
+    $sql = "INSERT INTO `user_info`(`fname`, `lname`, `age`, `gender`, `email`, `phone`, `password`) VALUES ('axon', 'blaze', 21,'male','axon@example.com','909202932039','hello')";
     if ($cn->query($sql) === TRUE) {
     echo "New record created successfully";
     } else {
@@ -33,7 +33,8 @@ function add_user($fname,$lname,$age,$gender,$email,$phone,$password)
 }
 // $cn=mysqli_connect("localhost","root","","travels","3306");
 $cn = makeconnection();
-add_user('axon', 'blaze', 21,'male','axon@example.com','909202932039','hello');
+// add_user('axon', 'blaze', 21,'male','axon@example.com','909202932039','hello');
+add_user("axon", "blaze", 21,"male","axon@example.com","909202932039","hello");
 ?>
 </body>
 </html>
