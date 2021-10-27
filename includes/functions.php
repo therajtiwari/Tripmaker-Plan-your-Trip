@@ -51,15 +51,40 @@ function find_user($email,$password)
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo "Users: " . $row["fname"] . " " . $row["lname"];
+            echo "<br>Users: " . $row["fname"] . " " . $row["lname"];
+            $username = $row["fname"] . " " . $row["lname"];
         }
     } else {
         echo "0 results";
     }
+    // $username = $row["fname"] . " " . $row["lname"];
+    return $username;
 }
-add_user("shreyans", "mulkutkar", 21,"male","shreyans@gmail.com","hello");
+
+function login($email,$password){
+    session_start();
+    $cn=mysqli_connect("localhost","root","","travels","3306");
+    $username = find_user($email,$password);
+    if (empty($username))
+    {   
+        echo "<br><script>alert('Invalid Email or Password');</script>";
+        
+    } else {
+        $_SESSION["Username"] = $username;
+        $_SESSION['loginstatus']="yes";
+        echo "<br>$username logged in";
+        // header("location:hotels\index.php");
+    }
+    
+}
+
+function logout(){
+    session_abort();
+}
+// add_user("shreyans", "mulkutkar", 21,"male","shreyans@gmail.com","hello");
 // update_user("axon22", "blaze22", 22,"male","axon2@example.com","920839394","myhome","4030303","mumbai","india");
-find_user('shreyans@gmail.com','hello');
+// find_user('shreyans@gmail.com','hello');
+login('shreyans@gmail.com','hello');
 ?>
 
 </body>
