@@ -234,6 +234,16 @@ h2 {
 
 .error-message-hide {
   position: absolute !important;
-  top: 0px;
+  top: -100px;
+  left: -100px;
   visibility: hidden !important;
+}
+
+.error-message-cvisible {
+  font-size: 20px;
+  color: #b13232 !important;
+  visibility: visible;
+  /* position: absolute; */
+  /* bottom: -30px; */
+  /* text-align: center; */
 }

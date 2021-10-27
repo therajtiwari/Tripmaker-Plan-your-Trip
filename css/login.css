@@ -69,3 +69,24 @@
     width: 100%;
   }
 }
+
+.error-message-visible {
+  font-size: 14px;
+  color: #b13232;
+  visibility: visible;
+  position: static;
+}
+
+.error-message-hide {
+  position: absolute !important;
+  top: -100px;
+  left: -100px;
+  visibility: hidden !important;
+}
+
+.error-message-cvisible {
+  font-size: 50px;
+  color: #b13232 !important;
+  visibility: visible;
+  position: static;
+}

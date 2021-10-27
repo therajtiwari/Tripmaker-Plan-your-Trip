@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
 </head>
 
 <body>
-<?php
+    <?php
 session_start();
 function add_user($fname,$lname,$age,$gender,$email,$password)
 {   
@@ -61,6 +62,7 @@ function find_user($email,$password)
     return $username;
 }
 
+
 function login($email,$password){
     // session_start();
     $cn=mysqli_connect("localhost","root","","travels","3306");
@@ -90,4 +92,5 @@ login('shreyans@gmail.com','hello');
 ?>
 
 </body>
+
 </html>
