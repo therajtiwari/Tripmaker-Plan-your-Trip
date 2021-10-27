@@ -35,8 +35,31 @@ function update_user($fname,$lname,$age,$gender,$email,$phone,$address,$pincode,
     echo "Error: " . $sql . "<br>" . $cn->error;
     }
 }
-// add_user("axon2", "blaze2", 21,"male","axon2@example.com","hello");
+
+function find_user($email,$password)
+{
+    $cn=mysqli_connect("localhost","root","","travels","3306");
+    $sql = "SELECT * FROM `user_info` WHERE `email` = '$email' AND `password` = SHA2('$password',256);";
+//     if ($cn->query($sql) === TRUE) {
+//     echo "User exists";
+//     } else {
+//     echo "Error: " . $sql . "<br>" . $cn->error;
+//     }
+// }
+    $result = $cn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "Users: " . $row["fname"] . " " . $row["lname"];
+        }
+    } else {
+        echo "0 results";
+    }
+}
+add_user("shreyans", "mulkutkar", 21,"male","shreyans@gmail.com","hello");
 // update_user("axon22", "blaze22", 22,"male","axon2@example.com","920839394","myhome","4030303","mumbai","india");
+find_user('shreyans@gmail.com','hello');
 ?>
 
 </body>
