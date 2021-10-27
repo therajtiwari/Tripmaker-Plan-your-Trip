@@ -37,7 +37,10 @@
               <div class="mb-4">
                 <h3>Register</h3>
               </div>
-              <form action="#" method="post">
+              <form
+                name="registration-form"
+                onsubmit="event.preventDefault(); validateForm();"
+              >
                 <div class="form-group first">
                   <!-- <label for="fname">First Name</label> -->
                   <input
@@ -46,6 +49,9 @@
                     id="fname"
                     placeholder="First Name"
                   />
+                  <div id="fname-error" class="error-message-hide">
+                    Firstname is required
+                  </div>
                 </div>
                 <div class="form-group">
                   <!-- <label for="lname">Last Name</label> -->
@@ -55,6 +61,9 @@
                     id="lname"
                     placeholder="Last Name"
                   />
+                  <div id="lname-error" class="error-message-hide">
+                    Lastname is required
+                  </div>
                 </div>
                 <div class="form-group">
                   <!-- <label for="email">Email</label> -->
@@ -64,6 +73,12 @@
                     class="form-control"
                     id="email"
                   />
+                  <div id="email-error-emp" class="error-message-hide">
+                    Email is required
+                  </div>
+                  <div id="email-error-reg" class="error-message-hide">
+                    Enter a valid email
+                  </div>
                 </div>
                 <div class="form-group">
                   <!-- <label for="password">Password</label> -->
@@ -73,6 +88,9 @@
                     class="form-control"
                     id="password"
                   />
+                  <div id="password-error-emp" class="error-message-hide">
+                    Password is required
+                  </div>
                 </div>
                 <div class="form-group">
                   <!-- <label for="re-password">Re-type Password</label> -->
@@ -82,6 +100,12 @@
                     class="form-control"
                     id="re-password"
                   />
+                  <div id="re-password-error-emp" class="error-message-hide">
+                    Enter the password again
+                  </div>
+                  <div id="re-password-error-match" class="error-message-hide">
+                    Passwords do not match
+                  </div>
                 </div>
                 <div class="form-group">
                   <input
@@ -89,11 +113,21 @@
                     type="text"
                     class="form-control"
                     onfocus="(this.type='date')"
-                    id="date"
+                    id="dob"
                   />
+                  <div id="dob-error-emp" class="error-message-hide">
+                    Enter the date
+                  </div>
+                  <div id="dob-error-age" class="error-message-hide">
+                    Must be above 18 to register with us.
+                  </div>
                 </div>
 
-                <select class="form-group form-select last" aria-label="Gender">
+                <select
+                  class="form-group form-select last"
+                  aria-label="Gender"
+                  id="gender"
+                >
                   <!-- <option selected>Open this select menu</option> -->
                   <option value="M">Male</option>
                   <option value="F">Female</option>
@@ -107,7 +141,7 @@
                     class="form-check-input"
                     type="checkbox"
                     value=""
-                    id="flexCheckChecked"
+                    id="terms"
                     checked
                   />
                   <label
@@ -116,6 +150,9 @@
                     ><span class="caption"
                       >Agree our <a href="#">Terms and Conditions</a></span
                     >
+                    <div id="terms-error" class="error-message-hide">
+                      You must agree to our terms and conditions
+                    </div>
                   </label>
                 </div>
                 <br />
@@ -135,5 +172,185 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      function validateForm() {
+        var fname = document.forms["registration-form"]["fname"].value;
+        var lname = document.forms["registration-form"]["lname"].value;
+        var email = document.forms["registration-form"]["email"].value;
+        var password = document.forms["registration-form"]["password"].value;
+        var rePassword =
+          document.forms["registration-form"]["re-password"].value;
+        var date = document.forms["registration-form"]["dob"].value;
+        var gender = document.forms["registration-form"]["gender"].value;
+        var terms = document.forms["registration-form"]["terms"].checked;
+
+        console.log("printing");
+        console.log(fname);
+        console.log(lname);
+        console.log(email);
+        console.log(password);
+        console.log(rePassword);
+        console.log(date);
+        console.log(gender);
+        console.log(terms);
+
+        var efname =
+          (elname =
+          eemail =
+          edob =
+          egender =
+          epassword =
+          erepassword =
+          eterms =
+            true);
+        if (fname == "") {
+          fname_error = document.getElementById("fname-error");
+          fname_error.classList.remove("error-message-hide");
+          fname_error.classList.add("error-message-visible");
+
+          efname = false;
+        } else {
+          fname_error = document.getElementById("fname-error");
+          fname_error.classList.remove("error-message-visible");
+          fname_error.classList.add("error-message-hide");
+        }
+        if (lname == "") {
+          lname_error = document.getElementById("lname-error");
+          lname_error.classList.remove("error-message-hide");
+          lname_error.classList.add("error-message-visible");
+          elname = false;
+        } else {
+          lname_error = document.getElementById("lname-error");
+          lname_error.classList.add("error-message-hide");
+          lname_error.classList.remove("error-message-visible");
+        }
+
+        if (email == "") {
+          email_error = document.getElementById("email-error-emp");
+          email_error.classList.remove("error-message-hide");
+          email_error.classList.add("error-message-visible");
+          eemail = false;
+        } else {
+          email_error = document.getElementById("email-error-emp");
+          email_error.classList.add("error-message-hide");
+          email_error.classList.remove("error-message-visible");
+        }
+        if (email) {
+          email_error = document.getElementById("email-error-reg");
+          //email validation
+          var re =
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if (re.test(email)) {
+            email_error.classList.add("error-message-hide");
+            email_error.classList.remove("error-message-visible");
+            eemail = true;
+          } else {
+            email_error.classList.remove("error-message-hide");
+            email_error.classList.add("error-message-visible");
+            eemail = false;
+          }
+        }
+
+        if (password == "") {
+          password_error = document.getElementById("password-error-emp");
+          password_error.classList.remove("error-message-hide");
+          password_error.classList.add("error-message-visible");
+          epassword = false;
+        } else {
+          password_error = document.getElementById("password-error-emp");
+          password_error.classList.add("error-message-hide");
+          password_error.classList.remove("error-message-visible");
+        }
+
+        if (rePassword == "") {
+          rePassword_error = document.getElementById("re-password-error-emp");
+          rePassword_error.classList.remove("error-message-hide");
+          rePassword_error.classList.add("error-message-visible");
+          erepassword = false;
+        } else {
+          rePassword_error = document.getElementById("re-password-error-emp");
+          rePassword_error.classList.add("error-message-hide");
+          rePassword_error.classList.remove("error-message-visible");
+        }
+
+        if (password && rePassword && password !== rePassword) {
+          rePassword_error = document.getElementById("re-password-error-match");
+          rePassword_error.classList.remove("error-message-hide");
+          rePassword_error.classList.add("error-message-visible");
+          console.log(rePassword_error);
+          erepassword = false;
+        } else {
+          rePassword_error = document.getElementById("re-password-error-match");
+          rePassword_error.classList.add("error-message-hide");
+          rePassword_error.classList.remove("error-message-visible");
+        }
+
+        if (date == "") {
+          date_error = document.getElementById("dob-error-emp");
+          date_error.classList.remove("error-message-hide");
+          date_error.classList.add("error-message-visible");
+          console.log(date_error);
+          edob = false;
+        } else {
+          date_error = document.getElementById("dob-error-emp");
+          date_error.classList.add("error-message-hide");
+          date_error.classList.remove("error-message-visible");
+        }
+
+        if (date) {
+          date_error = document.getElementById("dob-error-age");
+          // check if age is greater than 18
+          var today = new Date();
+          var birthDate = new Date(date);
+          var age = today.getFullYear() - birthDate.getFullYear();
+          var m = today.getMonth() - birthDate.getMonth();
+          if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+          }
+          if (age < 18) {
+            date_error.classList.remove("error-message-hide");
+            date_error.classList.add("error-message-visible");
+            console.log(date_error);
+            edob = false;
+          } else {
+            date_error.classList.add("error-message-hide");
+            date_error.classList.remove("error-message-visible");
+            edob = true;
+          }
+        } else {
+          date_error = document.getElementById("dob-error-age");
+          date_error.classList.add("error-message-hide");
+          date_error.classList.remove("error-message-visible");
+          //date_error.style.position = "static";
+          edob = true;
+        }
+        if (!terms) {
+          terms_error = document.getElementById("terms-error");
+          terms_error.classList.remove("error-message-hide");
+          terms_error.classList.add("error-message-visible");
+          console.log(terms_error);
+          eterms = false;
+        } else {
+          terms_error = document.getElementById("terms-error");
+          terms_error.classList.add("error-message-hide");
+          terms_error.classList.remove("error-message-visible");
+        }
+
+        if (
+          !efname ||
+          !elname ||
+          !eemail ||
+          !edob ||
+          !egender ||
+          !epassword ||
+          !erepassword ||
+          !eterms
+        ) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
   </body>
 </html>

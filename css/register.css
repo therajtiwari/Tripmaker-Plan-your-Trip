@@ -224,3 +224,16 @@ h2 {
 ::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
   color: transparent;
 }
+
+.error-message-visible {
+  font-size: 14px;
+  color: #b13232;
+  visibility: visible;
+  position: static;
+}
+
+.error-message-hide {
+  position: absolute !important;
+  top: 0px;
+  visibility: hidden !important;
+}
