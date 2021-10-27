@@ -7,7 +7,7 @@
 
 <body>
 <?php
-
+session_start();
 function add_user($fname,$lname,$age,$gender,$email,$password)
 {   
     $cn=mysqli_connect("localhost","root","","travels","3306");
@@ -62,7 +62,7 @@ function find_user($email,$password)
 }
 
 function login($email,$password){
-    session_start();
+    // session_start();
     $cn=mysqli_connect("localhost","root","","travels","3306");
     $username = find_user($email,$password);
     if (empty($username))
@@ -79,7 +79,9 @@ function login($email,$password){
 }
 
 function logout(){
-    session_abort();
+    // session_abort();
+    $_SESSION["username"]="";
+    $_SESSION["loginstatus"]="";
 }
 // add_user("shreyans", "mulkutkar", 21,"male","shreyans@gmail.com","hello");
 // update_user("axon22", "blaze22", 22,"male","axon2@example.com","920839394","myhome","4030303","mumbai","india");
