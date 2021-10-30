@@ -117,11 +117,11 @@
                         </div>
                         <hr />
                         <div class=" form-row">
-                            <div class="form-group col-md-5 mx-2">
+                            <div class="form-group col-md-5" style="margin-right:25px">
                                 <label for="firstname">Firstname</label>
                                 <input type="text" id="firstname" class="form-control" placeholder="Brown" />
                             </div>
-                            <div class="form-group col-md-5 mx-2">
+                            <div class="form-group col-md-5">
                                 <label for="lastname">Lastname</label>
                                 <input type="text" id="lastname" class="form-control" placeholder="Asher" />
                             </div>
