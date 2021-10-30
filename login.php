@@ -1,10 +1,13 @@
 <?php 
 include('./includes/functions.php');
 session_start();
+if(isset($_SESSION['user_email'])){
+  header('Location: index.php');
+}
 if(isset($_POST['submit'])){
   $email = $_POST['email'];
   $password = $_POST['password'];
-  echo $email;
+  // echo $email;
   login($email, $password);
 }
 
@@ -52,8 +55,8 @@ if(isset($_POST['submit'])){
                             </div>
                             <br />
                             <!-- <div id="credentials-error" class="error-message-cvisible">
-                  Invalid Credentials. Please try again.
-                </div> -->
+                                Invalid Credentials. Please try again.
+                            </div> -->
                             <br />
 
                             <button type="submit" class="btn btn-block btn-primary" name="submit">
