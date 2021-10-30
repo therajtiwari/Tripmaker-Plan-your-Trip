@@ -17,16 +17,22 @@ include("includes/connect.inc.php");
 //     }
 // }
 
-function update_user($fname,$lname,$age,$gender,$email,$phone,$address,$pincode,$city,$country)
-{   
-    $cn=mysqli_connect("localhost","root","","travels","3306");
-    $sql = "UPDATE `user_info` SET `fname` = '$fname',`lname` = '$lname',`age` = '$age',`gender` = '$gender',
+function update_user_details($email,$fname,$lname,$phone,$address,$city,$pincode,$country)
+{ 
+    $cn=new_conn();
+    $sql = "UPDATE `user_info` SET `fname` = '$fname',`lname` = '$lname',
     `phone` = '$phone',`address` = '$address',`pincode` = '$pincode',`city` = '$city', `country` = '$country' WHERE email = '$email';";
-
-    if ($cn->query($sql) === TRUE) {
-    echo "User record updated successfully";
-    } else {
-    echo "Error: " . $sql . "<br>" . $cn->error;
+    $result = mysqli_query($cn,$sql);
+    echo $result;
+    if($result )
+    {
+        echo "Record updated successfully";
+        return true;
+    }
+    else
+    {
+        echo "Error updating record: " . mysqli_error($cn);
+        return false;
     }
 }
 
@@ -93,5 +99,22 @@ function check_login($cn){
     echo "not logged in";
     // header('location:login.php');
     die;
+}
+
+function get_user_details($user_email){
+    
+    $cn=new_conn();
+    $query = "SELECT fname,lname,age,phone,address,pincode,city,country FROM `user_info` WHERE `email` = '$user_email'";
+    // echo $query;
+    $result=mysqli_query($cn,$query);
+    if(mysqli_num_rows($result)>0){
+        $user_data=mysqli_fetch_assoc($result);
+        // $_SESSION['user_id']=$row['id'];
+        return $user_data;
+    }
+    else{
+        echo "Something went wrong";
+    }
+
 }
 ?>

@@ -1,9 +1,37 @@
 <?php
-//   include("/includes/functions.php");
-  session_start();
-//     if(!isset($_SESSION['user_id'])){
-//         header("Location: index.php");
-//     }
+
+include("includes/functions.php");
+session_start();
+$status = "";
+
+    if(!isset($_SESSION['user_email'])){
+        header("Location: index.php");
+    }
+   
+
+    $user_data=get_user_details($_SESSION['user_email']);
+    
+    if(isset($_POST['submit'])){
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $phone=$_POST['phone'];
+        $address=$_POST['address'];
+        $city=$_POST['city'];
+        $pincode=$_POST['pincode'];
+        $country=$_POST['country'];
+        
+        $update_status=update_user_details($_SESSION['user_email'],$fname,$lname,$phone,$address,$city,$pincode,$country);
+        if($update_status){
+            echo "<script>alert('Details Updated Successfully')</script>";
+            $user_data=get_user_details($_SESSION['user_email']);
+            $status=1;
+        }
+        else{
+            echo "<script>alert('Error Occured')</script>";
+            $status=0;
+        }
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -103,7 +131,7 @@
 
                 <div class="my-4">
 
-                    <form>
+                    <form method="POST">
                         <div class="row mt-5 align-items-center justify-content-center">
                             <div class="col-md-3 text-center mb-5">
                                 <div class="avatar avatar-xl">
@@ -119,60 +147,69 @@
                         <div class=" form-row">
                             <div class="form-group col-md-5" style="margin-right:25px">
                                 <label for="firstname">Firstname</label>
-                                <input type="text" id="firstname" class="form-control" placeholder="Brown" />
+                                <input type="text" id="firstname" name="fname" class="form-control"
+                                    value="<?php echo $user_data["fname"];?>" />
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="lastname">Lastname</label>
-                                <input type="text" id="lastname" class="form-control" placeholder="Asher" />
+                                <input type="text" id="lastname" name="lname" class="form-control"
+                                    value="<?php echo $user_data["lname"];?>" />
                             </div>
                         </div>
-                        <div class="form-group col-md-5">
-                            <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="brown@asher.me" />
-                        </div>
+
                         <div class="form-group col-md-5">
                             <label for="inputphone">Phone Number</label>
-                            <input type="text" class="form-control" id="inputphone" placeholder="" />
+                            <input type="text" name="phone" class="form-control" id="inputphone"
+                                value="<?php echo $user_data["phone"];?>" />
                         </div>
                         <div class="form-group col-md-10">
                             <label for="inputAddress5">Address</label>
-                            <input type="text" class="form-control" id="inputAddress5"
-                                placeholder="P.O. Box 464, 5975 Eget Avenue" />
+                            <input type="text" class="form-control" name="address" id="inputAddress5"
+                                value="<?php echo $user_data["address"];?>" />
                         </div>
 
                         <div class="form-group col-md-5">
                             <label for="pincode">Pincode</label>
-                            <input type="text" class="form-control" id="pincode" placeholder="4342343" />
+                            <input type="text" class="form-control" name="pincode" id="pincode"
+                                value="<?php echo $user_data["pincode"];?>" />
                         </div>
                         <div class="form-group col-md-5">
                             <label for="pincode">City</label>
-                            <input type="text" class="form-control" id="pincode" placeholder="Mumbai" />
+                            <input type="text" class="form-control" id="city" name="city"
+                                value="<?php echo $user_data["city"];?>" />
                         </div>
 
                         <div class="form-group col-md-5">
                             <label for="country">Country</label>
-                            <input type="text" class="form-control" id="country" placeholder="Mumbai" />
+                            <input type="text" class="form-control" id="country" name="country"
+                                value="<?php echo $user_data["country"];?>" />
                         </div>
 
                         <br>
 
-                        <button type="submit" style="background-color:#b0914f !important" class="btn btn-warning">Save
+                        <button type="submit" style="background-color:#b0914f !important" class="btn btn-warning"
+                            name="submit" id="myWish">Save
                             Change</button>
                     </form>
+
                 </div>
             </div>
+
         </div>
 
-    </div>
 
 
 
+        <!-- bootstrap 
+    -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"></script>
 
 
-    <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-    </script>
 </body>
 
 </html>
