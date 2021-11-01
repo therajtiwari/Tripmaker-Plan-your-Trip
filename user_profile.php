@@ -131,7 +131,7 @@ $status = "";
 
                 <div class="my-4">
 
-                    <form method="POST">
+                    <form onsubmit="return false">
                         <div class="row mt-5 align-items-center justify-content-center">
                             <div class="col-md-3 text-center mb-5">
                                 <div class="avatar avatar-xl">
@@ -164,7 +164,7 @@ $status = "";
                         </div>
                         <div class="form-group col-md-10">
                             <label for="inputAddress5">Address</label>
-                            <input type="text" class="form-control" name="address" id="inputAddress5"
+                            <input type="text" class="form-control" name="address" id="inputaddress"
                                 value="<?php echo $user_data["address"];?>" />
                         </div>
 
@@ -188,14 +188,23 @@ $status = "";
                         <br>
 
                         <button type="submit" style="background-color:#b0914f !important" class="btn btn-warning"
-                            name="submit" id="myWish">Save
+                            name="submit" id="submitform">Save
                             Change</button>
+                        <div class="alert alert-success" id="success-alert" style="margin-top:30px">
+                            <strong>Success!</strong>
+                            Your profile has been updated
+                        </div>
+                        <div class="alert alert-danger" id="danger-alert" style="margin-top:30px">
+                            Something went wrong. Please try again.
+                        </div>
+
                     </form>
 
                 </div>
             </div>
 
         </div>
+
 
 
 
@@ -209,6 +218,66 @@ $status = "";
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous"></script>
 
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("#success-alert").hide();
+            $("#danger-alert").hide();
+
+            $('#submitform').click(function() {
+                // console.log("hereeeeeeeeeeeeeeeee");
+
+                var fname = $('#firstname').val();
+                var lname = $('#lastname').val();
+                var phone = $('#inputphone').val();
+                var address = $('#inputaddress').val();
+                var pincode = $('#pincode').val();
+                var city = $('#city').val();
+                var country = $('#country').val();
+                var email = '<?php echo $_SESSION['user_email'] ?>';
+
+                // console.log(fname, lname, phone, address, pincode, city, country, email);
+
+                $.ajax({
+                    url: './includes/update_profile.php',
+                    type: 'POST',
+                    data: {
+                        update: 'profile',
+                        fname: fname,
+                        lname: lname,
+                        phone: phone,
+                        address: address,
+                        pincode: pincode,
+                        city: city,
+                        country: country,
+                        email: email
+                    },
+                    success: function(data) {
+
+                        if (data == "200") {
+
+                            console.log("success");
+
+                            $("#success-alert").fadeTo(4000, 500).slideUp(500,
+                                function() {
+                                    $("#success-alert").slideUp(500);
+                                });
+
+
+                        } else {
+
+                            console.log("failed");
+                            $("#danger-alert").fadeTo(4000, 500).slideUp(500,
+                                function() {
+                                    $("#danger-alert").slideUp(500);
+                                });
+                        }
+                    }
+                });
+
+            })
+        });
+        </script>
 
 </body>
 

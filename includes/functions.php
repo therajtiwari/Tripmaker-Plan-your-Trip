@@ -18,7 +18,7 @@ include("includes/connect.inc.php");
 // }
 
 function update_user_details($email,$fname,$lname,$phone,$address,$city,$pincode,$country)
-{ 
+{
     $cn=new_conn();
     $sql = "UPDATE `user_info` SET `fname` = '$fname',`lname` = '$lname',
     `phone` = '$phone',`address` = '$address',`pincode` = '$pincode',`city` = '$city', `country` = '$country' WHERE email = '$email';";
