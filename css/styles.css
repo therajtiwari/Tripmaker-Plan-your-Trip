@@ -190,3 +190,7 @@ MAIN PAGE
 h5 {
   color: red;
 }
+
+.dropdown-toggle {
+  font-size: 20px;
+}

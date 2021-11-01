@@ -1,16 +1,19 @@
 <?php
 session_start();
-echo "Welcome to the homepage";
-if(isset($_SESSION['user_email'])){
-  echo "Welcome ".$_SESSION['user_email'];
-}
-else {
-  echo "You are not logged in";
-}
+// echo "Welcome to the homepage";
+// if(isset($_SESSION['user_email'])){
+//   echo "Welcome ".$_SESSION['user_email'];
+// }
+// else {
+//   echo "You are not logged in";
+// }
 // include("./includes/connect.php");
 // include("./includes/functions.php");
 // $cn=mysqli_connect("localhost","root","","travels","3306");
-// $user=check_login($cn); 
+// $user=check_login($cn);
+
+
+
 ?>
 
 
@@ -62,7 +65,7 @@ else {
         <div class="navbar-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid ms-auto">
-                    <a class="navbar-brand" href="index2.html"
+                    <a class="navbar-brand" href="./index.php"
                         style="color: var(--primary-y);font-weight:600;">TripMaker</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -72,7 +75,7 @@ else {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                                <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
                             </li>
                             <li class=" nav-item">
                                 <a class="nav-link" href="#welcome-info">About</a>
@@ -108,10 +111,23 @@ else {
                                 <?php
                                 if(isset($_SESSION['user_email']))
                                 {
-                                echo '<a class="nav-link" href="./includes/logout.php">Logout</a>';
+                                     echo '
+                                     <div class="dropdown">
+                                     <a class="btn dropdown-toggle nav-link"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                       Hi, '.$_SESSION['username'].'
+                                     </a>
+                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                       <li><a class="dropdown-item" href="./user_profile.php">My Profile</a></li>
+                                       <li><a class="dropdown-item" href="#">My Trips</a></li>
+                                       <li><a class="dropdown-item" href="./includes/logout.php">Logout</a></li>
+                                     </ul>
+                                   </div>
+                                    ';
+                                // echo '<a class="nav-link" href="./includes/logout.php">Logout</a>';
                                 }
                                 else
                                 {
+                                   
                                 echo '<a class="nav-link" href="./login.php">Login</a>';
                                 }
                                

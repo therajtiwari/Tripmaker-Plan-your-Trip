@@ -69,6 +69,11 @@ function login($email,$password){
     $result = mysqli_query($cn,$query);
     if(mysqli_num_rows($result)>0){
         $_SESSION['user_email'] = $email;
+        $name;
+        while($row = $result->fetch_assoc()) {
+            $name=$row["fname"] ;
+          }
+        $_SESSION['username'] = $name;
         header("Location: index.php");
         die;
     }
@@ -80,7 +85,7 @@ function login($email,$password){
 
 function check_login($cn){
     if(isset($_SESSION['user_email'])){
-        echo "logged in";
+        // echo "logged in";
         $user_email=$_SESSION['user_email'];
         $query = "SELECT * FROM `user_info` WHERE `email` = '$user_email'";
         $result=mysqli_query($cn,$query);

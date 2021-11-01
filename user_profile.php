@@ -7,7 +7,8 @@ $status = "";
     if(!isset($_SESSION['user_email'])){
         header("Location: index.php");
     }
-   
+    
+
 
     $user_data=get_user_details($_SESSION['user_email']);
     
@@ -50,6 +51,7 @@ $status = "";
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style2.css" />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -64,7 +66,7 @@ $status = "";
     <div class="navbar-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid ms-auto">
-                <a class="navbar-brand" href="index2.html"
+                <a class="navbar-brand" href="./index.php"
                     style="color: var(--primary-y);font-weight:600;">TripMaker</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -74,7 +76,7 @@ $status = "";
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
                         </li>
                         <li class=" nav-item">
                             <a class="nav-link" href="#welcome-info">About</a>
@@ -110,10 +112,23 @@ $status = "";
                             <?php
                                 if(isset($_SESSION['user_email']))
                                 {
-                                echo '<a class="nav-link" href="./includes/logout.php">Logout</a>';
+                                     echo '
+                                     <div class="dropdown">
+                                     <a class="btn dropdown-toggle nav-link"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                       Hi, '.$_SESSION['username'].'
+                                     </a>
+                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                       <li><a class="dropdown-item" href="./user_profile.php">My Profile</a></li>
+                                       <li><a class="dropdown-item" href="#">My Trips</a></li>
+                                       <li><a class="dropdown-item" href="./includes/logout.php">Logout</a></li>
+                                     </ul>
+                                   </div>
+                                    ';
+                                // echo '<a class="nav-link" href="./includes/logout.php">Logout</a>';
                                 }
                                 else
                                 {
+                                   
                                 echo '<a class="nav-link" href="./login.php">Login</a>';
                                 }
                                
@@ -141,7 +156,8 @@ $status = "";
                             </div>
                         </div>
                         <div class="col">
-                            <h2 style="text-align:center;margin-bottom:30px">Hello, Raj Tiwari</h2>
+                            <h2 style="text-align:center;margin-bottom:30px">Hello,
+                                <?php  echo $_SESSION["username"]; ?></h2>
                         </div>
                         <hr />
                         <div class=" form-row">
@@ -224,6 +240,8 @@ $status = "";
             $("#success-alert").hide();
             $("#danger-alert").hide();
 
+
+            //form submission
             $('#submitform').click(function() {
                 // console.log("hereeeeeeeeeeeeeeeee");
 
@@ -235,9 +253,7 @@ $status = "";
                 var city = $('#city').val();
                 var country = $('#country').val();
                 var email = '<?php echo $_SESSION['user_email'] ?>';
-
                 // console.log(fname, lname, phone, address, pincode, city, country, email);
-
                 $.ajax({
                     url: './includes/update_profile.php',
                     type: 'POST',
@@ -255,15 +271,11 @@ $status = "";
                     success: function(data) {
 
                         if (data == "200") {
-
                             console.log("success");
-
                             $("#success-alert").fadeTo(4000, 500).slideUp(500,
                                 function() {
                                     $("#success-alert").slideUp(500);
                                 });
-
-
                         } else {
 
                             console.log("failed");
