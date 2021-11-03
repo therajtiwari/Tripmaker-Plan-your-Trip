@@ -82,29 +82,13 @@ session_start();
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#gallery">Gallery</a>
+                                <a class="nav-link" href="./gallery.php">Gallery</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./blog.html">Blogs</a>
+                                <a class="nav-link" href="./blog.php">Blogs</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Quick Book
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#booking">USA</a></li>
-                                    <li>
-                                        <a class="dropdown-item" href="#booking">India</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#booking"> France</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#booking"> Australia</a>
-                                    </li>
-
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./all_tours.php">All Tours</a>
                             </li>
 
                             <li class="nav-item">
@@ -710,7 +694,7 @@ session_start();
                                     by admin
                                 </p>
                                 <h5 class="card-title" style="margin-top:1.5rem"> <a
-                                        style="text-decoration:none; color:black" href="blog.html">Why choose
+                                        style="text-decoration:none; color:black" href="blog.php">Why choose
                                         France as your destination to
                                         travel this
                                         summer</a> </h5>
@@ -733,7 +717,7 @@ session_start();
                                     May 2019
                                     by admin
                                 </p>
-                                <h5 class="card-title" style="margin-top:1.5rem"><a href="blog.html"
+                                <h5 class="card-title" style="margin-top:1.5rem"><a href="blog.php"
                                         style="text-decoration:none; color:black">Why choose France as your
                                         destination
                                         to travel this
@@ -757,7 +741,7 @@ session_start();
                                     May 2019
                                     by admin
                                 </p>
-                                <h5 class="card-title" style="margin-top:1.5rem"><a href="blog.html"
+                                <h5 class="card-title" style="margin-top:1.5rem"><a href="blog.php"
                                         style="text-decoration:none; color:black">Why choose France as your
                                         destination
                                         to travel this

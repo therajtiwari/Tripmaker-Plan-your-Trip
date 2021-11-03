@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Open+Sans:wght@300;400;600;700&family=PT+Sans&family=Poppins:wght@200;300;400;500;600&family=Source+Sans+Pro:wght@200;300;400;600&display=swap");
+
+:root {
+  --primary-y: #b0914f;
+  --secondary-y: #7e6a40;
+  --grey-text: #535353;
+  --grey-p: #555;
+  --white-y: #f0f0f0;
+}
+
+/* nav-bar */
+.navbar-inverse {
+  background-color: transparent;
+  border-color: transparent;
+}
+.navbar-inverse .navbar-brand {
+  color: #fff;
+  font-size: 40px;
+  padding: 40px 15px;
+  font-weight: 900;
+}
+.nav.navbar-nav.navbar-right {
+  margin: 25px 0;
+}
+.navbar-inverse .navbar-nav > li > a {
+  font-size: 2rem;
+  color: black;
+  text-transform: uppercase;
+}
+.banner {
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
+.navbar-nav.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+}
+
+.nav-item {
+  padding: 0rem 2rem;
+}
+.nav-link {
+  color: black !important;
+  font-size: 1.2rem;
+}

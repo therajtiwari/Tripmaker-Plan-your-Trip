@@ -1,0 +1,95 @@
+.cover-image-container {
+  height: 50vh;
+  background: url("../images/img5.jpg") no-repeat center center fixed;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-title-text {
+  color: white;
+}
+
+.page-title-text h1 {
+  color: white;
+  font-size: 4rem;
+}
+
+.latest-posts-box,
+.categories-box {
+  background-color: white;
+  border: solid 1px rgb(219, 219, 219);
+  border-top: solid 6px var(--primary-y);
+}
+.categories-box {
+  margin-top: 40px;
+}
+
+.list-unstyled li a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--grey-text);
+}
+
+.fa-angle-right {
+  margin-right: 10px;
+}
+.list-unstyled li {
+  margin-top: 10px;
+}
+
+.tag-posts ul li {
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.tag-posts {
+  margin: 0rem 20px;
+}
+.tag-posts ul li a {
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.card-text {
+  line-height: 1.7rem;
+  word-spacing: 1px;
+  color: white;
+}
+
+.card-text-b {
+  line-height: 1.7rem;
+  word-spacing: 1px;
+  color: var(--grey-text);
+}
+
+.btn-more {
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.btn-continue {
+  background: var(--primary-y) !important;
+  color: white !important;
+  width: auto;
+  border-radius: 0px !important;
+}
+.btn-continue:hover {
+  background: var(--secondary-y) !important;
+}
+
+.tour-image img {
+  width: 100%;
+
+  object-fit: cover;
+}
