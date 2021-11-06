@@ -107,7 +107,23 @@ select :focus {
 .book-btn:hover {
   background-color: var(--secondary-y);
 }
+.form-wrapper {
+  margin: auto;
+}
 
+hr {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  border: none;
+  height: 3px !important;
+  /* Set the hr color */
+  color: var(--primary-y);
+  background-color: var(--primary-y);
+}
+.total-price {
+  margin-top: 20px;
+}
 @media screen and (max-width: 768px) {
   .content {
     width: 95%;

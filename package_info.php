@@ -248,7 +248,8 @@ $status = "";
                 <div class="booking-box col-md-4">
                     <div class="form-box">
                         <h3 style="text-align:center">Book Now</h3>
-                        <div class="form-wrapper">
+                        <hr>
+                        <div class=" form-wrapper">
                             <form>
                                 <div class="form-group">
                                     <label for="checkin">Check In</label>
@@ -257,6 +258,7 @@ $status = "";
                                 <div class="form-group">
                                     <label for="adults">Adults</label>
                                     <select class="form-control" id="adults">
+                                        <option>0</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -267,6 +269,7 @@ $status = "";
                                 <div class="form-group">
                                     <label for="children">Children</label>
                                     <select class="form-control" id="children">
+                                        <option>0</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
