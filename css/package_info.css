@@ -124,6 +124,12 @@ hr {
 .total-price {
   margin-top: 20px;
 }
+
+.carousel-item img {
+  min-height: 500px !important;
+  max-height: 500px !important;
+  object-fit: cover;
+}
 @media screen and (max-width: 768px) {
   .content {
     width: 95%;
@@ -155,12 +161,8 @@ hr {
   .form-wrapper {
     width: 90%;
   }
-}
-
-.carousel-item img {
-  min-height: 500px !important;
-  max-height: 500px !important;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  .carousel-item img {
+    min-height: 300px !important;
+    max-height: 300px !important;
+  }
 }

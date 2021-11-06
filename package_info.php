@@ -293,7 +293,7 @@ if($images){
                                 <div class="form-group">
                                     <label for="adults">Adults</label>
                                     <select class="form-control" id="adults">
-                                        <option>0</option>
+
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -342,6 +342,42 @@ if($images){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    var changeTotal = function() {
+        console.log('change');
+
+        var adults = $('#adults').val();
+        var children = $('#children').val();
+        var total = adults * parseInt(<?php echo $package_info['price_adult'] ?>) + children * (parseInt(
+            <?php echo $package_info['price_child'] ?>));
+
+        var discount = 0;
+
+        if (parseInt(<?php echo $package_info['discount'] ?>) > 0) {
+            discount = parseInt(<?php echo $package_info['discount'] ?>);
+            console.log(discount);
+        }
+
+        if ((adults > 0 || children > 0) && discount) {
+            total_initial = total
+            total = total_initial - (total_initial * (discount / 100));
+            $('.total-price').html('Total: ' +
+                total_initial + ' + <strong style="color:red">' +
+                discount + '% discount </strong>  = Rs ' + total);
+
+        } else {
+            $('.total-price').html('Total: Rs ' + total);
+
+        }
+        console.log(total);
+    };
+
+    $("#adults").change(changeTotal);
+    $("#children").change(changeTotal);
+
+    $(document).ready(changeTotal);
+    </script>
 
 </body>
 
