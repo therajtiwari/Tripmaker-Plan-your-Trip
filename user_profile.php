@@ -145,7 +145,6 @@ $status = "";
             <div class="col-12 col-lg-10 col-xl-8 mx-auto">
 
                 <div class="my-4">
-
                     <form onsubmit="return false">
                         <div class="row mt-5 align-items-center justify-content-center">
                             <div class="col-md-3 text-center mb-5">
@@ -240,7 +239,6 @@ $status = "";
             $("#success-alert").hide();
             $("#danger-alert").hide();
 
-
             //form submission
             $('#submitform').click(function() {
                 // console.log("hereeeeeeeeeeeeeeeee");
@@ -269,7 +267,6 @@ $status = "";
                         email: email
                     },
                     success: function(data) {
-
                         if (data == "200") {
                             console.log("success");
                             $("#success-alert").fadeTo(4000, 500).slideUp(500,
@@ -277,7 +274,6 @@ $status = "";
                                     $("#success-alert").slideUp(500);
                                 });
                         } else {
-
                             console.log("failed");
                             $("#danger-alert").fadeTo(4000, 500).slideUp(500,
                                 function() {

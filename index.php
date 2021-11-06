@@ -13,7 +13,6 @@ session_start();
 // $user=check_login($cn);
 
 
-
 ?>
 
 

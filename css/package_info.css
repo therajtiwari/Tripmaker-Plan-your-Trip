@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Open+Sans:wght@300;400;600;700&family=PT+Sans&family=Poppins:wght@200;300;400;500;600&family=Source+Sans+Pro:wght@200;300;400;600&display=swap");
+
+:root {
+  --primary-y: #b0914f;
+  --secondary-y: #7e6a40;
+  --grey-text: #535353;
+  --grey-p: #555;
+  --white-y: #f0f0f0;
+}
+
+.container-wrapper {
+  margin-top: 50px;
+  margin: auto;
+}
+
+.content {
+  margin-top: 100px !important;
+  width: 80%;
+  margin: auto;
+}
+.left-container {
+  border: 1px solid rgb(204, 204, 204);
+  padding: 2rem;
+}
+.carousel-item img {
+  width: 100%;
+}
+.tour-title {
+  margin-top: 20px;
+}
+.tour-desciption {
+  margin-top: 10px;
+}
+
+.itinerary-info {
+  margin-top: 3rem;
+}
+.itinerary-info ul {
+  margin-top: 10px;
+  list-style-type: disc !important;
+  padding-left: 1em !important;
+  margin-left: 1em;
+  font-size: 1rem;
+}
+
+.reviews {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.review-card {
+  margin-top: 20px;
+  padding: 2rem;
+  /* border: 1px solid rgb(204, 204, 204); */
+  background-color: #f3f3f3;
+}
+.review-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviewer {
+  text-align: right;
+}
+.ratings {
+  color: var(--primary-y);
+}
+
+.review-description {
+  margin-top: 10px;
+}
+
+.form-box {
+  background-color: #343a40;
+  color: white;
+  padding: 30px 10px;
+}
+
+.form-wrapper {
+  width: 80%;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+input,
+select {
+  border-radius: 0px !important;
+}
+input:focus,
+select :focus {
+  box-shadow: none !important;
+  outline: var(--primary-y) solid 1px !important;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.book-btn {
+  background-color: var(--primary-y);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0px;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+.book-btn:hover {
+  background-color: var(--secondary-y);
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    width: 95%;
+    margin: auto;
+  }
+  .left-container {
+    width: 95%;
+    margin: auto;
+  }
+  .reviews h3 {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 10px;
+    /* margin-left: 5%; */
+  }
+  .review-card {
+    margin: auto;
+    width: 95%;
+  }
+  .review-container {
+    flex-direction: column;
+  }
+  .reviewer {
+    text-align: left;
+  }
+  .review-description {
+    margin-top: 0px;
+  }
+  .form-wrapper {
+    width: 90%;
+  }
+}
