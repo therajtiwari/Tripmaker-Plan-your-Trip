@@ -7,31 +7,29 @@ $status = "";
     if(!isset($_SESSION['user_email'])){
         header("Location: index.php");
     }
-    
-
 
     $user_data=get_user_details($_SESSION['user_email']);
-    
-    if(isset($_POST['submit'])){
-        $fname=$_POST['fname'];
-        $lname=$_POST['lname'];
-        $phone=$_POST['phone'];
-        $address=$_POST['address'];
-        $city=$_POST['city'];
-        $pincode=$_POST['pincode'];
-        $country=$_POST['country'];
+
+    // if(isset($_POST['submit'])){
+    //     $fname=$_POST['fname'];
+    //     $lname=$_POST['lname'];
+    //     $phone=$_POST['phone'];
+    //     $address=$_POST['address'];
+    //     $city=$_POST['city'];
+    //     $pincode=$_POST['pincode'];
+    //     $country=$_POST['country'];
         
-        $update_status=update_user_details($_SESSION['user_email'],$fname,$lname,$phone,$address,$city,$pincode,$country);
-        if($update_status){
-            echo "<script>alert('Details Updated Successfully')</script>";
-            $user_data=get_user_details($_SESSION['user_email']);
-            $status=1;
-        }
-        else{
-            echo "<script>alert('Error Occured')</script>";
-            $status=0;
-        }
-    }
+    //     $update_status=update_user_details($_SESSION['user_email'],$fname,$lname,$phone,$address,$city,$pincode,$country);
+    //     if($update_status){
+    //         echo "<script>alert('Details Updated Successfully')</script>";
+    //         $user_data=get_user_details($_SESSION['user_email']);
+    //         $status=1;
+    //     }
+    //     else{
+    //         echo "<script>alert('Error Occured')</script>";
+    //         $status=0;
+    //     }
+    // }
     
 ?>
 

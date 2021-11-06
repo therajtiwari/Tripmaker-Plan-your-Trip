@@ -3,43 +3,6 @@
 include("includes/functions.php");
 session_start();
 $status = "";
-// print to console
-
-$package_name=$_GET['name'];
-echo "<script>console.log('Debug Objects: " . $package_name . "' );</script>";
-
-
-$package_info=get_package_info($package_name);
-$images=get_package_images($package_name);
-
-if(!$package_info){
-    echo "<script>console.log('Debug Objects: " . "package not found" . "' );</script>";
-    $status = "package not found";
-    header("Location: 404.html");
-}
-else{
-    echo "<script>console.log('Debug Objects: " . "package found" . "' );</script>";
-    $status = "packageq found";
-    // echo "<script>console.log('Debug Objects: " . $package_info . "' );</script>";
-    foreach ($package_info as $key => $value) {
-        # code...
-        echo "<script>console.log('Debug Objects: " .$key ." ". $value . "' );</script>";
-    }
-
-if($images){
-    echo "<script>console.log('Debug Objects: " . "images found" . "' );</script>";
-    foreach ($images as $key => $value) {
-        # code...
-        echo "<script>console.log('Debug Objects: " .$key ." ". $value . "' );</script>";
-    }
-    echo "<script>console.log('Debug Objects: " .count($images) . "' );</script>";
-
-}
-}
-
-    
-
-    
 
 
 ?>
@@ -153,25 +116,15 @@ if($images){
                                         data-bs-slide-to="2" aria-label="Slide 3"></button>
                                 </div>
                                 <div class="carousel-inner">
-
-                                    <?php
-                                    for($i=0;$i<count($images);$i++){
-                                        
-                                        if($i==0){
-                                            echo '<div class="carousel-item active">
-                               
-                                            <img src="'.$images[$i].'" class="d-block w-100" alt="..."> 
-                                            </div>';
-                                    }
-                                    else{
-                                        echo '<div class="carousel-item">
-                                            <img src="'.$images[$i].'" class="d-block w-100" alt="..."> 
-                                            </div>';
-                                    }
-                                    }
-                                         ?>
-
-
+                                    <div class="carousel-item active">
+                                        <img src="./images/img1.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./images/img2.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./images/img3.jpg" class="d-block w-100" alt="...">
+                                    </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button"
                                     data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -186,30 +139,52 @@ if($images){
                             </div>
                         </div>
                         <div class="tour-title">
-                            <h3> <?php echo $package_info['name']; ?> </h3>
-                            <h5>Rs<?php echo $package_info['price_adult']; ?></h5>
-                            <?php if($package_info["rating"]){
-                                echo '<h6>Ratings'. $package_info["rating"]. '/5 </h6>';
-                            }
-                            else{
-                                echo '<h6 style="color:gray">No ratings </h6>';
-                            } ?>
+                            <h3>London Family Tour</h3>
+                            <h5>Rs 140000/adult</h5>
                         </div>
-                        <div class=" tour-desciption" style="margin-top:30px">
-                            <h6><?php echo $package_info['description']; ?></h6>
+                        <div class="tour-desciption">
+                            <h6>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro deserunt asperiores
+                                ipsum
+                                rerum eos in temporibus dolor. Hic soluta temporibus dolor magnam est amet, eaque,
+                                corporis
+                                ad, obcaecati deleniti sit! Porro dolor voluptate laboriosam consectetur magnam
+                                consequatur,
+                                modi eos voluptas quisquam rem molestias architecto a ex ullam laborum. Nobis, numquam.
+                            </h6>
                         </div>
                         <div class="itinerary-info">
                             <h4>Itinerary</h4>
                             <ul>
-                                <?php 
-                                    $itinerary = explode('#',$package_info['itinerary']);
-                                    foreach($itinerary as $itinerary_item)
-                                    {
-                                        echo '<li>'.$itinerary_item.'</li>';
-                                    }
-                                ?>
-
-
+                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa
+                                    necessitatibus
+                                    dignissimos beatae illum, ratione dolores quod dolore quisquam, deserunt aut tempora
+                                    natus
+                                    odio dicta vitae assumenda perspiciatis blanditiis similique!</li>
+                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa
+                                    necessitatibus
+                                    dignissimos beatae illum, ratione dolores quod dolore quisquam, deserunt aut tempora
+                                    natus
+                                    odio dicta vitae assumenda perspiciatis blanditiis similique!</li>
+                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa
+                                    necessitatibus
+                                    dignissimos beatae illum, ratione dolores quod dolore quisquam, deserunt aut tempora
+                                    natus
+                                    odio dicta vitae assumenda perspiciatis blanditiis similique!</li>
+                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa
+                                    necessitatibus
+                                    dignissimos beatae illum, ratione dolores quod dolore quisquam, deserunt aut tempora
+                                    natus
+                                    odio dicta vitae assumenda perspiciatis blanditiis similique!</li>
+                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa
+                                    necessitatibus
+                                    dignissimos beatae illum, ratione dolores quod dolore quisquam, deserunt aut tempora
+                                    natus
+                                    odio dicta vitae assumenda perspiciatis blanditiis similique!</li>
+                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa
+                                    necessitatibus
+                                    dignissimos beatae illum, ratione dolores quod dolore quisquam, deserunt aut tempora
+                                    natus
+                                    odio dicta vitae assumenda perspiciatis blanditiis similique!</li>
                             </ul>
                         </div>
                     </div>
@@ -228,17 +203,12 @@ if($images){
                             </div>
 
                             <div class="review-description">
-                                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est impedit
-                                    optio soluta
-                                    deleniti doloribus quae atque sequi quisquam a deserunt commodi quod
-                                    quas voluptates
-                                    voluptatem accusantium, voluptatibus ex? Cum consectetur aut ratione
-                                    nesciunt,
-                                    reprehenderit culpa earum error alias numquam suscipit fugit architecto!
-                                    Sit
+                                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est impedit optio soluta
+                                    deleniti doloribus quae atque sequi quisquam a deserunt commodi quod quas voluptates
+                                    voluptatem accusantium, voluptatibus ex? Cum consectetur aut ratione nesciunt,
+                                    reprehenderit culpa earum error alias numquam suscipit fugit architecto! Sit
                                     repudiandae
-                                    veritatis expedita, beatae pariatur odio soluta perferendis nobis labore
-                                    cum ad
+                                    veritatis expedita, beatae pariatur odio soluta perferendis nobis labore cum ad
                                     dicta
                                     autem, aperiam iure officia?</h6>
                             </div>
@@ -258,17 +228,12 @@ if($images){
                             </div>
 
                             <div class="review-description">
-                                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est impedit
-                                    optio soluta
-                                    deleniti doloribus quae atque sequi quisquam a deserunt commodi quod
-                                    quas voluptates
-                                    voluptatem accusantium, voluptatibus ex? Cum consectetur aut ratione
-                                    nesciunt,
-                                    reprehenderit culpa earum error alias numquam suscipit fugit architecto!
-                                    Sit
+                                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est impedit optio soluta
+                                    deleniti doloribus quae atque sequi quisquam a deserunt commodi quod quas voluptates
+                                    voluptatem accusantium, voluptatibus ex? Cum consectetur aut ratione nesciunt,
+                                    reprehenderit culpa earum error alias numquam suscipit fugit architecto! Sit
                                     repudiandae
-                                    veritatis expedita, beatae pariatur odio soluta perferendis nobis labore
-                                    cum ad
+                                    veritatis expedita, beatae pariatur odio soluta perferendis nobis labore cum ad
                                     dicta
                                     autem, aperiam iure officia?</h6>
                             </div>

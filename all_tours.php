@@ -128,7 +128,9 @@ session_start();
                         nostrum. Architecto consequuntur odit natus error assumenda.</h6>
                     <div class="info-buttons">
                         <div class="form-group ">
-                            <a href="#" class="btn btn-main btn-block btn-view-details">View Details</a>
+                            <a href="./package_info.php?name=india_tour"
+                                class="btn btn-main btn-block btn-view-details">View
+                                Details</a>
                         </div>
                         <div class="form-group ">
                             <a href="#" class="btn btn-main btn-block">Book Now</a>

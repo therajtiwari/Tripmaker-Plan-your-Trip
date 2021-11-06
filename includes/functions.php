@@ -122,4 +122,42 @@ function get_user_details($user_email){
     }
 
 }
+
+function get_package_info($package_name){
+    $cn=new_conn();
+    $query = "SELECT name,description,price_adult,price_child,discount,available_days,total_days,itinerary,rating FROM `tour_package` WHERE `name` = '$package_name'";
+    // echo $query;
+    // echo $query;
+    $result=mysqli_query($cn,$query);
+    if(mysqli_num_rows($result)>0){
+        $package_data=mysqli_fetch_assoc($result);
+        // $_SESSION['user_id']=$row['id'];
+        return $package_data;
+    }
+    else{
+        // echo "Something went wrong";
+        return false;
+    }
+}
+
+function get_package_images($package_name){
+    $cn=new_conn();
+    $images;
+    
+    $query_id = "select link from location_images where location_id in (select id from location where tour_package_id=(SELECT id FROM `tour_package` WHERE `name` = '$package_name'));";
+    $result_id=mysqli_query($cn,$query_id);
+    if(mysqli_num_rows($result_id)>0){
+        
+        while($row = $result_id->fetch_assoc()) {
+            $images[]=$row["link"];
+        }
+        return $images;
+    }
+    else{
+        // echo "Something went wrong";
+        return false;
+    }
+    
+    
+}
 ?>
