@@ -99,4 +99,12 @@ function get_users(){
 
 }
 
+function get_packages(){
+    $cn=new_conn();
+    $sql = "SELECT * FROM `tour_package`";
+    $result = mysqli_query($cn,$sql);
+    $packages_array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    return $packages_array;
+}
+
 ?>
