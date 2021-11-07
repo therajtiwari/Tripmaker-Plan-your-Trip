@@ -1,0 +1,121 @@
+{
+    "package-1":{
+       "Name":"Dubai Tour",
+       "Description":"Dubai to believe that a man-made marvel like this exists. Record-breaking architecture and man-made islands here, cannot be seen anywhere else in the world. For tourists across the globe, Dubai is a travel mecca and business hub. Explore the best destinations in Dubai. Book your 5 Days 4 Nights of Dubai tour package and visit Dubai Museum, Burj Al Arab, Jumeirah Mosque.",
+       "Itenary":{
+          "Day 1":"Arrive at Dubai Airport and transferred to Hotel. In evening visit Bastakia Quaeter.",
+          "Day 2":"After Breakfast visit Dubai Museum, Burj Al Arab, Jumeirah Mosque and Gold Souk.",
+          "Day 3":"After Breakfast full day is at leisure. You can take a optional tour of Desert Safari.",
+          "Day 4":"Today visit Burj Khalifa the tallest building in the world.",
+          "Day 5":"Proceed to Dubai International Airport Airport to Board a Flight for your onwards journey"
+       },
+       "Total Days":"5D,4N",
+       "Price":85788
+    },
+    "package-2":{
+       "Name":"Europe Tour",
+       "Description":"Explore the best destinations in the Netherlands with Traveldealsfinder. Book your 14 Days 13 Nights of Netherlands tour package with Traveldealsfinder. Visit the best tourist places in Europe including London, Paris, Brussels, Amsterdam, Switzerland, Frankfurt, Venice, Rome, Vatican",
+       "Itenary":{
+          "Day 1":"Pickup from London Airport - Enjoy the Evening - Relax at Hotel",
+          "Day 2":"After Breakfast - Visit Tourist Places of London",
+          "Day 3":"After Breakfast Travel from London to Paris - Visit Eiffel Tower, Enjoy Seine River Cruise",
+          "Day 4":"After Breakfast Proceed to Disneyland, Enjoy Various Rides & Shows",
+          "Day 5":"After Breakfast Proceed to Brussels - Brussels Sightseeing",
+          "Day 6":"Enjoy Amsterdam City Tour",
+          "Day 7":"Enjoy Day in Switizerland - City Tour",
+          "Day 8":"After Breakfast Visit Engelberg - Experience Titlis Rotair",
+          "Day 9":"After Breakfast Visit Jungfraujoch, Trummelbach Glacial Waterfalls",
+          "Day 10":"After Breakfast Drive Through Vaduz, Liechtenstein",
+          "Day 11":"Venice Sightseeing",
+          "Day 12":"Visit Pisa, Florence, Perugia City - The Beauty of Italy",
+          "Day 13":"Vatican City Sightseeing",
+          "Day 14":"Drop at Airport - Journey End"
+       },
+       "Total Days":"14D,13N",
+       "Price":148999
+    },
+    "package-3":{
+       "Name":"Singapore Tour",
+       "Description":"Explore the best destinations in Singapore with TUI. Book your 4 Days 3 Nights of Singapore city tour package with TUI. Visit the best tourist places in Singapore including Parliament House, Supreme Court and City Hall.",
+       "Itenary":{
+          "Day 1":"Arrive in Singapore. You will be met and transferred to your hotel. Check into the hotel. Rest of the day is at leisure. Overnight stay at the hotel.",
+          "Day 2":"After breakfast, proceed for a city tour of Singapore; an orientation tour that begins with a drive around the Civic District, the Cricket Club and the historic Parliament House, Supreme Court and City Hall. Stop at the Merlion Park for a great view of the Marina Bay and a picture-taking opportunity with The Merlio. The tour continues with a visit to the Thian Hock Keng Temple, one of the oldest Buddhist-Taoist temples on the island, before driving past Chinatown to a local handicraft centre. The final stop is in Little India. Rest of the day at leisure. Overnight stay at the hotel.",
+          "Day 3":"Breakfast at the hotel. The day is at leisure. Overnight stay at the hotel.",
+          "Day 4":"After breakfast at the hotel, you will be transferred to the airport for your flight back home or onward destination."
+       },
+       "Total Days":"4D,3N",
+       "Price":42589
+    },
+    "package-4":{
+       "Name":"Malaysia Tour",
+       "Description":"Malaysia is a stunning blend of skyscrapers to gorgeous beaches. From traditional villages to serene temples and century-old caves - a trip to Malaysia will not disappoint you at all. Explore the best destinations in Malaysia. Book your 4 Days 3 Nights of Malaysia tour package.",
+       "Itenary":{
+          "Day 1":"Arrive Kuala Lumpur International Airport and transfer to the hotel.",
+          "Day 2":"Today visit Iconic Petronas Twin Towers,The Palace,National Monument,The National Museum and The National Mosque",
+          "Day 3":"Today proceed to full day tour at Sunway Lagoon here you visit Extreme Park,Scream park,Amusement Park and the Wildlife Park. ",
+          "Day 4":"Today  proceed to Kuala Lumpur international Airport to board a flight for your onwards journey"
+       },
+       "Total Days":"4D,3N",
+       "Price":36999
+    },
+    "package-5":{
+       "Name":"Andaman Tour",
+       "Description":"The only place where you could find this in abundance is Andaman! Its ever-welcoming weather and the serene shorelines provide a wide array of fun and outdoor activities. Adding to its beauty is the delicious seafood and the mind-boggling sightseeing places in Andaman that make your holiday unforgettable.",
+       "Itenary":{
+          "Day 1":"Arrive at Port Blair airport and you are transferred to hotel. In afternoon visit Corbyns Cove Beach and Cellular Jail.",
+          "Day 2":"Proceed to Havelock Island by ferry. Later visit World Famous Radha Nagar Beach .",
+          "Day 3":"Morning is at leisure for your individual activities. Sail for Port Blair in the evening.",
+          "Day 4":"Full day sightseeing of Port Blair which covers Fisheries Museum, Anthropological Museum , Naval Marine Museum etc.",
+          "Day 5":"Full day sightseeing of Ross Island .",
+          "Day 6":"Proceed to Port Blair airport to board a flight for your onwards journey"
+       },
+       "Total Days":"6D,5N",
+       "Price":58990
+    },
+    "package-6":{
+       "Name":"Eygpt",
+       "Description":"7 Days Egyptian Treasures Winter Tour Package by us.Explore the best destinations in Egypt with us. Book your 7 Days 6 Nights of Cairo, Aswan With Luxor tour package with Thomas Cook. Visit the best tourist places in Egypt including Kom El – Dekka, Catacombs of Kom- El- Shokafa, the Roman Catacombs, Giza plateau, Cairo tower.",
+       "Itenary":{
+          "Day 1":"Egypt-Today, embark on your exciting tour of Egypt. On arrival, you are greeted by your friendly tour manager / local representative outside the baggage hall. Check into your conveniently located hotel (check-in by 1400 hrs). Later this evening, enjoy the Sound and light show at the pyramids of Giza. You can get a glimpse back in time to see, feel and imagine how it was when the powerful Egyptians ruled. Tonight enjoy a sumptuous Indian dinner at a local Indian restaurant. Overnight at Hotel Movenpick Pyramid / Pyramid Park / Intercontinental or similar in Cairo.",
+          "Day 2":"Alexandria-This morning, after a sumptuous breakfast at your hotel, get ready for a full day excursion to Alexandria, the second-largest city in Egypt. Sit back in your coach as we take you to Alexandria. On arrival, visit In Kom El – Dekka, Catacombs of Kom- El- Shokafa, the Roman Catacombs are rock-hewn in three tiers at depth off 1000 feet dating back to the early first early second century A.D.See the Pompey’s Pillar, a colossal granite pillar erected in 297 A.D. Also see the Montazah Gardens. Later, you will have some free time to stroll by the Corniche, the sea-front promenade. After a day full of history and fun, return back to Cairo. Tonight enjoy a sumptuous Indian dinner at a local Indian restaurant. Overnight at Hotel Movenpick Pyramid / Pyramid Park / Intercontinental or similar in Cairo.",
+          "Day 3":"Cairo-After breakfast at your hotel, we proceed for a guided tour of this ancient capital city. On the west bank of the Nile, facing Cairo and on top of the Giza plateau, rise the three Pyramids erected by Cheops, Chephren and Mycerinus, and guarded by the mysterious sphinx, a mythical statue with a body of a lion and a human head. The three Pyramids and the Sphinx are considered one of the Seven Wonders of the World.Also see the Cairo tower, one of the more recent landmarks of Cairo rising to a height of 187 meters, the famous Blue Mosque with blue mosaic walls, and the Mari Mina church dating back to the early 5th century. See the famous Egyptian Museum which houses more than 2,50,000 antique pieces covering the whole history of ancient Egypt, which extends over the past five thousand years; the most splendid being the collection of Tut Ankh- Amen.Later, you can visit the Khan El-Khalili Bazaar and the Al Sangha market place where you will come across some interesting jewellery shops or go shopping to pick up souvenirs on your own. Tonight enjoy a sumptuous Indian dinner at a local restaurant. Overnight at Hotel Movenpick Pyramid / Pyramids Park / Intercontinental or similar in Cairo.",
+          "Day 4":"Aswan – Kom Ombo-After an American breakfast at the hotel, proceed to the airport for your flight to Aswan. On arrival at Aswan; proceed on a guided city tour visiting the High Dam – one of the outstanding architectural achievements of the twentieth century. Enjoy an excursion to the magnificent temples of Abu Simbel dedicated to Gods Amun, Ra-Horakhty, and Ptah, as well as to the deified Rameses.We then visit the temple of Philae dedicated to Goddess Isis. Enjoy a felucca ride around the Elephantine island, after which we proceed to the Cruise centre to board the luxury cruise liner. After boarding, enjoy the delicious 'welcome aboard' buffet lunch. Later today, we sail to Kom Ombo. The rest of the day is at leisure. Enjoy dinner on the cruise. Overnight on board the cruise.",
+          "Day 5":"Edfu-After breakfast, we proceed to visit the famous 'Temple of Two Gods'. Dedicated to Sobek and Haroeris, the crocodile gods, this temple was constructed during the Roman era and is noted for the engravings on the walls. After the city sights of Kom Ombo, we board the cruise and sail to Edfu town situated on the west bank of the river Nile. On arrival, we proceed to the famous Edfu temple dedicated to god Horus, represented by the Falcon.This is one of the most beautiful Egyptian temples distinguished by its huge splendid structure that blends Pharaonic and Greek architecture. Visit the Elephantine Island. Enjoy the sights of the Nile River from the deck, as your Nile Cruise sails to Luxor via the Esna Lock. Overnight on board the cruise.",
+          "Day 6":"Town of Luxor-After a delicious breakfast on board the cruise, we proceed on a tour of Luxor – the city of palaces. Visit the famous tombs in the Valley of Kings. Visit the temple of Hatshepsut. We then proceed to the Colossi of Memnon, which are the ruins of the funerary tomb of the Pharaoh Amenhotep III and the Temple of Queen Hatshepsut, the only queen who ruled Egypt. Further proceed to visit Karnak and Luxor Temples. Enjoy a Horse Carriage ride this evening at Old Luxor city centre. Later, transfer back to the cruise. Dinner onboard the cruise. Overnight on board the cruise.",
+          "Day 7":"Luxor-After breakfast, bid good-bye to all the friends you made on the cruise. After disembarking from the cruise, transfer to your conveniently located hotel in Luxor. On arrival, the rest of the day is at leisure. Enjoy the sights and sounds of this quaint city. Later proceed to the airport, where your memorable Thomas Cook tour comes to an end. Do spare a few minutes to fill in the feedback form and hand it over to your Tour Manager. Your valued suggestions will be most appreciated. Arrive home with pleasant memories of your Egyptian tour."
+       },
+       "Total Days":"7D,6N",
+       "Price":73499
+    },
+    "package-7":{
+       "Name":"Australia Tour",
+       "Description":"Escape to beautiful Moreton Bay with a scenic cruise that in just over an hour will bring you to the crystal clear waters and white sandy beaches of Tangalooma Island Resort. Tangalooma's wide range of resort facilities caters for everyone and offers guests of all ages the perfect destination for a unique adventure, education, or nature-based experiences in a truly relaxed environment. Yatra brings to you specially designed package with an enriching experience of Sydney, adventures of Gold Coast along with Natural Wonders of Tangalooma .",
+       "Itenary":{
+          "Day 1":"Arrive in Sydney Kingsford Smith International Airport and transfer to hotel. rest of the day at leisure.",
+          "Day 2":"Today Half day city tour of Sydney like Harbour Bridge, Opera House and other attractions.",
+          "Day 3":"Today boago for Full Day Trip to Blue Mountains with Jenolan Caves.",
+          "Day 4":"Today proceed for Sydney Airport to board your flight to Gold Coast.",
+          "Day 5":"Today enjoy theme park . like Sea World, Movie World ,Wet n Wild Water World etc",
+          "Day 6":"Full day is free to leisure",
+          "Day 7":"Today transfer back to Brisbane Airport, from where you will proceed to Tangalooma Resort. day is free to leisure",
+          "Day 8":"Today proceed Brisbane airport to board your flight to back to India"
+       },
+       "Total Days":"8D,7N",
+       "Price":116899
+    },
+    "package-8":{
+       "Name":"USA",
+       "Description":"America is a metropolis brimming with cities like LA, Las Vegas, Chicago, Miami, Boston and New York. Each city is different in itself with a different set of cultures, cuisines and entertainment options. The USA is rightly called the country of road trips. You can enjoy sun-bleached hillsides of the Great Plains, rainforests, swamplands and scenic country lanes as you veer off to discover blue highways. Explore the best destinations in the USA. Book your 7 Days 6 Nights of New York, Washington holiday travel package. Visit the best tourist places in the USA including New York, Atlantic City, Washington.",
+       "Itenary":{
+          "Day 1":"New York-Arrive at New York airport and you are transferred to your pre-booked hotel. En-route enjoy the Delicious dinner at an Indian restaurant. then you are transferred to your hotel. Check-in the hotel and relax for some time. The evening is free for your leisure activities. Overnight stay at the hotel.",
+          "Day 2":"New York Sightseeing-After Delicious Breakfast begins an amazing city tour of New York which covers 9/11 memorial, the Theatre District, Chinatown, Wall Street, Central Park, United Nations’ Global Headquarters, the Trump Tower, the Manhattan and Brooklyn Bridges and much other attraction. Later enjoy the short cruise to take a close view of the Statue of Liberty. After tour enjoys the dinner at the Indian restaurant then return back to the hotel. Overnight stay at the hotel.",
+          "Day 3":"Atlantic City tour-After Breakfast check out the hotel and board a flight and proceed to Atlantic City. Later we proceed for a walking tour of the world-famous Atlantic City Boardwalk. And you can shop in one of the best shopping destinations on the east coast Later enjoy the dinner at the Indian restaurant. Overnight stay at the hotel.",
+          "Day 4":"Washington D.C City Tour-After Breakfast checks out the hotel and boards a flight to Washington D.C. On arrival enjoy the city tour of the historical and beautiful city here you see the Washington Monument - The Marble Obelisk built-in memory of George Washington, then continue to drive to Pennsylvania Avenue.On arriving at The Capitol - the White dome-shaped building which serves as the office of elected members of the Senate then visits Lincoln Memorial, Korean Memorial and World War II Memorial en route you see the Smithsonian Institution - The World’s Largest Museum Complex, which includes The National Air and Space Museum. In the evening enjoy the dinner at the local Indian restaurant. Overnight stay at the hotel.",
+          "Day 5":"City sightseeing-After Breakfast starts your tour to the most popular Chocolate factory at Hershey's Chocolate World - Here you see the process of ow beans are made into milk chocolate. then we continue to Niagara Falls - one of the natural wonders of the world. After tour proceeds to the hotel. Check-in the hotel and relax for some time. Overnight stay at the hotel.",
+          "Day 6":"Sightseeing-After Breakfast proceed to Niagara Falls to enjoy the thrilling boat ride ‘Maid of The Mist’ which gives you a breathtaking view of the cascading waters of this majestic waterfall Later, sit back and relax in your coach as we drive to Philadelphia, the economic and cultural centre city. The city has more outdoor sculptures and murals than any other American city. After tour return back to the hotel. Overnight stay at the hotel.",
+          "Day 7":"Depart New York-Today is last day of your tour after Breakfast check out the hotel and proceed to New York airport to board a flight for your onwards journey."
+       },
+       "Total Days":"7D,6N",
+       "Price":1436899
+    }
+ }
