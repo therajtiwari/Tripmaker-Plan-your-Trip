@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2021 at 02:50 PM
+-- Generation Time: Nov 07, 2021 at 04:38 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -167,7 +167,7 @@ CREATE TABLE `review` (
   `rating` int(11) DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -272,7 +272,6 @@ ALTER TABLE `location_images`
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `tour_package_id` (`tour_package_id`),
   ADD KEY `user_id` (`user_id`);
 
@@ -318,12 +317,6 @@ ALTER TABLE `location_images`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `review`
---
-ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tour_package`
 --
 ALTER TABLE `tour_package`
@@ -350,8 +343,8 @@ ALTER TABLE `blog`
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`tour_package_id`) REFERENCES `tour_package` (`id`),
-  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`id`);
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`tour_package_id`) REFERENCES `tour_package` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `location`
@@ -369,8 +362,8 @@ ALTER TABLE `location_images`
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`tour_package_id`) REFERENCES `tour_package` (`id`),
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`id`);
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`tour_package_id`) REFERENCES `tour_package` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
