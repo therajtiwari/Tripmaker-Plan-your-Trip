@@ -109,8 +109,8 @@ function check_login($cn){
 function get_user_details($user_email){
     
     $cn=new_conn();
-    $query = "SELECT fname,lname,age,phone,address,pincode,city,country FROM `user_info` WHERE `email` = '$user_email'";
-    // echo $query;
+    $query = "SELECT fname,lname,dob,phone,address,pincode,city,country FROM `user_info` WHERE `email` = '$user_email'";
+    echo $query;
     $result=mysqli_query($cn,$query);
     if(mysqli_num_rows($result)>0){
         $user_data=mysqli_fetch_assoc($result);

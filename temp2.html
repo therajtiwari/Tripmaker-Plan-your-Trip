@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=
+    "
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <table id="mytable" width="50%">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tester</th>
+          <th>Date</th>
+          <th>Approve</th>
+          <th>Deny</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="test">
+          <td class="ids">11565</td>
+          <td class="tester">james</td>
+          <td>2012-07-02</td>
+          <td><button id="Approved" type="submit">Approved</button></td>
+          <td><button id="deny_0" type="submit">Denied</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#Approved").click(function () {
+          var id = $(this).parent().siblings(".ids").text();
+          var tester = $(this).parent().siblings(".tester").text();
+
+          console.log(id);
+          console.log(tester);
+        });
+      });
+    </script>
+  </body>
+</html>
