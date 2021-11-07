@@ -186,7 +186,7 @@ if($images){
                             </div>
                         </div>
                         <div class="tour-title">
-                            <h3> <?php echo $package_info['name']; ?> </h3>
+                            <h3> <?php echo $package_info['name']." Tour" ; ?> </h3>
                             <h5>Rs<?php echo $package_info['price_adult']; ?></h5>
                             <?php if($package_info["rating"]){
                                 echo '<h6>Ratings'. $package_info["rating"]. '/5 </h6>';
@@ -202,10 +202,13 @@ if($images){
                             <h4>Itinerary</h4>
                             <ul>
                                 <?php 
-                                    $itinerary = explode('#',$package_info['itinerary']);
-                                    foreach($itinerary as $itinerary_item)
-                                    {
-                                        echo '<li>'.$itinerary_item.'</li>';
+                                    $itinerary = explode(';',$package_info['itinerary']);
+                                    // foreach($itinerary as $itinerary_item)
+                                    // {
+                                    //     echo '<li>'.$itinerary_item.'</li>';
+                                    // }
+                                    for($i=0;$i<count($itinerary)-1;$i++){
+                                        echo '<li>'.$itinerary[$i].'</li>';
                                     }
                                 ?>
 
