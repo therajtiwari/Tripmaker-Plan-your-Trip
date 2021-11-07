@@ -294,6 +294,18 @@ if($images){
                                     <input type="date" class="form-control" id="checkin" placeholder="Arrival">
                                 </div>
                                 <div class="form-group">
+                                    <label for="cuisine">Choice of Cuisine</label>
+                                    <select
+                                    class="form-group form-select last"
+                                    aria-label="Cuisine"
+                                    id="cuisine"
+                                    name="cuisine"
+                                    >
+                                    <!-- <option selected>Open this select menu</option> -->
+                                    <option value="V">Veg</option>
+                                    <option value="N">Non-Veg</option>
+                                    <option value="J">Jain</option>
+                                    </select>    
                                     <label for="adults">Adults</label>
                                     <select class="form-control" id="adults">
 
