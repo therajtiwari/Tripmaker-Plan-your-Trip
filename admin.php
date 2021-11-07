@@ -52,7 +52,8 @@ $recent_bookings=get_recent_bookings();
                             class="material-icons">dashboard</i><span>Dashboard</span></a>
                 </li>
                 <li class="">
-                    <a href="./admin.php"><i class="material-icons">featured_play_list</i><span>Packages</span></a>
+                    <a href="./admin_packages.php"><i
+                            class="material-icons">featured_play_list</i><span>Packages</span></a>
                 </li>
                 <li class="">
                     <a href="./admin_users.php"><i class="material-icons">person_search</i><span>Users</span></a>

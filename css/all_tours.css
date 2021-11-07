@@ -11,7 +11,7 @@
 body {
   font-family: "Open Sans", sans-ser;
   overflow-x: hidden;
-  background-color: white;
+  background-color: rgb(153, 142, 142);
 }
 * {
   box-sizing: border-box;
