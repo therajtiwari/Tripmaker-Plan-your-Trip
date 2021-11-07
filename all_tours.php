@@ -113,7 +113,7 @@ session_start();
         </div>
 
         <div class="tour-cards-wrapper">
-            <div class="card-wrapper">
+            <!-- <div class="card-wrapper">
 
                 <div class="tour-image-wrapper col-md-6">
                     <img class="tour-image" src="./images/img2.jpg" alt="">
@@ -187,32 +187,48 @@ session_start();
                     </div>
                 </div>
 
-            </div>
-            <div class="card-wrapper">
-
-                <div class="tour-image-wrapper col-md-6">
-                    <img class="tour-image" src="./images/img5.jpg" alt="">
-                </div>
-                <div class="tour-info col-md-6">
-                    <h2>Trip to Bali</h2>
-                    <h4 style="margin-bottom:2rem">Rs 70,0000</h4>
-                    <h6 style="font-size:0.9rem;margin-bottom:3rem">Lorem ipsum dolor sit amet consectetur
-                        adipisicing
-                        elit. Ab natus
-                        voluptate ullam commodi quae sint fugiat. A cumque repudiandae ratione amet beatae
-                        voluptas
-                        nostrum. Architecto consequuntur odit natus error assumenda.</h6>
-                    <div class="info-buttons">
-                        <div class="form-group ">
-                            <a href="#" class="btn btn-main btn-block btn-view-details">View Details</a>
-                        </div>
-                        <div class="form-group ">
-                            <a href="#" class="btn btn-main btn-block">Book Now</a>
+            </div> -->
+            <?php 
+            // include './includes/connect.inc.php';
+            include("includes/functions.php");
+            $conn = new mysqli("localhost","root","","travels","3306");
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            $sql = "SELECT * FROM tour_package";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $package_name=$row["name"];
+                    $images=get_package_images($package_name);
+                    $i = 0;
+                    echo '<div class="card-wrapper">
+                    <div class="tour-image-wrapper col-md-6">
+                        <img class="tour-image" src="'.$images[$i].'" alt="">
+                    </div>
+                    <div class="tour-info col-md-6">
+                        <h2>'.$row["name"].'</h2>
+                        <h5 style="margin-bottom:2rem">'.'Rs '.$row["price_adult"].'/adult, '.'Rs '.$row["price_child"].'/child'.'</h5>
+                        <h6 style="font-size:0.9rem;margin-bottom:3rem">'.$row["description"].'</h6>
+                        <div class="info-buttons">
+                            <div class="form-group ">
+                                <a href="./package_info.php?name='.$row["name"].'" class="btn btn-main btn-block btn-view-details">View Details</a>
+                            </div>
+                            <div class="form-group ">
+                                <a href="#" class="btn btn-main btn-block">Book Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-            </div>
+    
+                </div>';
+                $i++;
+                }
+                echo "</table>";
+              } else {
+                echo "0 results";
+              }
+            
+            ?>
 
 
 

@@ -186,7 +186,7 @@ if($images){
                             </div>
                         </div>
                         <div class="tour-title">
-                            <h3> <?php echo $package_info['name']; ?> </h3>
+                            <h3> <?php echo $package_info['name']." Tour" ; ?> </h3>
                             <h5>Rs<?php echo $package_info['price_adult']; ?></h5>
                             <?php if($package_info["rating"]){
                                 echo '<h6>Ratings'. $package_info["rating"]. '/5 </h6>';
@@ -202,10 +202,13 @@ if($images){
                             <h4>Itinerary</h4>
                             <ul>
                                 <?php 
-                                    $itinerary = explode('#',$package_info['itinerary']);
-                                    foreach($itinerary as $itinerary_item)
-                                    {
-                                        echo '<li>'.$itinerary_item.'</li>';
+                                    $itinerary = explode(';',$package_info['itinerary']);
+                                    // foreach($itinerary as $itinerary_item)
+                                    // {
+                                    //     echo '<li>'.$itinerary_item.'</li>';
+                                    // }
+                                    for($i=0;$i<count($itinerary)-1;$i++){
+                                        echo '<li>'.$itinerary[$i].'</li>';
                                     }
                                 ?>
 
@@ -291,6 +294,18 @@ if($images){
                                     <input type="date" class="form-control" id="checkin" placeholder="Arrival">
                                 </div>
                                 <div class="form-group">
+                                    <label for="cuisine">Choice of Cuisine</label>
+                                    <select
+                                    class="form-group form-select last"
+                                    aria-label="Cuisine"
+                                    id="cuisine"
+                                    name="cuisine"
+                                    >
+                                    <!-- <option selected>Open this select menu</option> -->
+                                    <option value="V">Veg</option>
+                                    <option value="N">Non-Veg</option>
+                                    <option value="J">Jain</option>
+                                    </select>    
                                     <label for="adults">Adults</label>
                                     <select class="form-control" id="adults">
 

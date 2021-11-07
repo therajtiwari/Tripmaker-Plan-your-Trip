@@ -89,7 +89,7 @@
     },
     "package-7":{
        "Name":"Australia Tour",
-       "Description":"Escape to beautiful Moreton Bay with a scenic cruise that in just over an hour will bring you to the crystal clear waters and white sandy beaches of Tangalooma Island Resort. Tangalooma's wide range of resort facilities caters for everyone and offers guests of all ages the perfect destination for a unique adventure, education, or nature-based experiences in a truly relaxed environment. Yatra brings to you specially designed package with an enriching experience of Sydney, adventures of Gold Coast along with Natural Wonders of Tangalooma .",
+       "Description":"Escape to beautiful Moreton Bay with a scenic cruise that in just over an hour will bring you to the crystal clear waters and white sandy beaches of Tangalooma Island Resort. Tangaloomas wide range of resort facilities caters for everyone and offers guests of all ages the perfect destination for a unique adventure, education, or nature-based experiences in a truly relaxed environment. Yatra brings to you specially designed package with an enriching experience of Sydney, adventures of Gold Coast along with Natural Wonders of Tangalooma.",
        "Itenary":{
           "Day 1":"Arrive in Sydney Kingsford Smith International Airport and transfer to hotel. rest of the day at leisure.",
           "Day 2":"Today Half day city tour of Sydney like Harbour Bridge, Opera House and other attractions.",
@@ -116,6 +116,6 @@
           "Day 7":"Depart New York-Today is last day of your tour after Breakfast check out the hotel and proceed to New York airport to board a flight for your onwards journey."
        },
        "Total Days":"7D,6N",
-       "Price":1436899
+       "Price":143689
     }
  }
