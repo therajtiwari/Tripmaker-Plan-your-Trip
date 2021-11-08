@@ -169,85 +169,43 @@
         </div>
     </div>
     <div id="container">
-        <div class="slide anim-in">
-            <div class="image" style="background-image: url(./images/img1.jpg)"></div>
-            <div class="overlay"></div>
-            <div class="content">
-                <h1 class="title" data-title="Venice">Venice</h1>
+    <?php 
+    // include './includes/connect.inc.php';
+    include("includes/functions.php");
+    $conn = new mysqli("localhost","root","","travels","3306");
+    $sql = "SELECT * FROM tour_package";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $package_name=$row["name"];
+            $images=get_package_images($package_name);
+            $i = 0;
+            echo '
+                <div class="slide anim-in">
+                    <div class="image" style="background-image: '.$images[$i].'"></div>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h1 class="title" data-title="'.$row["name"].'">'.$row["name"].'</h1>
 
-                <div class="tour-info">
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Assumenda accusamus architecto unde dicta aperiam, excepturi vero
-                        molestiae illo earum consequuntur mollitia porro vitae possimus
-                        aspernatur eaque voluptas ducimus. Quidem nostrum sequi iure
-                        corporis placeat deserunt veritatis ducimus illum ullam minima
-                        corrupti quia neque, dolorem omnis aliquid asperiores odit veniam
-                        reprehenderit?
-                    </h3>
-                </div>
-                <ul class="city-info">
-                    <li class="country">Country: Italy</li>
-                    <li class="founded">Founded: 697</li>
-                    <li class="population">Population: 260,060</li>
-                </ul>
-            </div>
-            <div class="btn-info-close"></div>
-        </div>
-        <div class="slide anim-in">
-            <div class="image" style="
-            background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/paris.jpg);
-          "></div>
-            <div class="overlay"></div>
-            <div class="content">
-                <h1 class="title" data-title="Paris">Paris</h1>
-                <div class="emblem" style="
-              background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/french-emblem.svg);
-            "></div>
-                <ul class="city-info">
-                    <li class="country">Country: France</li>
-                    <li class="founded">Founded: ~250BC</li>
-                    <li class="population">Population: 2.2 Million</li>
-                </ul>
-            </div>
-            <div class="btn-info-close"></div>
-        </div>
-        <div class="slide anim-in">
-            <div class="image" style="
-            background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/salzburg.jpg);
-          "></div>
-            <div class="overlay"></div>
-            <div class="content">
-                <h1 class="title" data-title="Salzburg">Salzburg</h1>
-                <div class="emblem" style="
-              background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/austrian-emblem.svg);
-            "></div>
-                <ul class="city-info">
-                    <li class="country">Country: Austria</li>
-                    <li class="founded">Founded: 1622</li>
-                    <li class="population">Population: 145,871</li>
-                </ul>
-            </div>
-            <div class="btn-info-close"></div>
-        </div>
-        <div class="slide anim-in">
-            <div class="image" style="
-            background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/prague.jpg);
-          "></div>
-            <div class="overlay"></div>
-            <div class="content">
-                <h1 class="title" data-title="Prague">Prague</h1>
-                <div class="emblem" style="
-              background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/czech-emblem.svg);
-            "></div>
-                <ul class="city-info">
-                    <li class="country">Country: Czech Republic</li>
-                    <li class="founded">Founded: 870</li>
-                    <li class="population">Population: 1.2 Million</li>
-                </ul>
-            </div>
-            <div class="btn-info-close"></div>
-        </div>
+                        <div class="tour-info">
+                            <h3>'.$row["description"].'</h3>
+                        </div>
+                        <ul class="city-info">
+                            <li class="country">Country: '.$row["name"].'</li>
+                            <li class="founded">Founded: 697</li>
+                            <li class="population">Population: 260,060</li>
+                        </ul>
+                    </div>
+                    <div class="btn-info-close"></div>
+                </div>';
+            $i++;
+        }
+        echo "</table>";
+        } else {
+        echo "0 results";
+    }
+            
+    ?>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
