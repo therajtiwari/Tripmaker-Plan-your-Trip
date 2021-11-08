@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+include './includes/connect.inc.php';
 include './includes/functions.php';
-$packages = get_packages();
+$conn = new mysqli("localhost","root","","travels","3306");
+$sql = "SELECT * FROM tour_package";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $i = 0;
+        $package_name=$row["name"];
+        $package_info[i]=get_package_info($package_name);
+        $images[i]=get_package_images($package_name); 
+        $i++;
+    }
+}
 ?>
 <head>
     <meta charset="UTF-8" />
@@ -90,60 +102,127 @@ $packages = get_packages();
 
 
     <div id="container" style="margin-top:100px">
-     
-    <?php
-        for($i=0;$i<4;$i++){
-            $package_info = get_package_information($packages[$i]);
-            $images = get_package_images($packages[$i]);
-            $show = "'".$images[0]."'";
-            echo '<div class="slide anim-in">
-                <div class="image" style="background-image: url('.$show.')"></div>
-                <div class="overlay"></div>
-                <div class="content">
-                    <h1 class="title" data-title="'.$package_info[0].'">'.$package_info[0].'</h1>
 
-                    <div class="tour-info">
-                        <h3>'.$package_info[1].'</h3>
-                    </div>
-                    <ul class="city-info">
-                        <li class="country">'.$package_info[0].'</li>
-                        <li class="founded">Founded: 697</li>
-                        <li class="population">Population: 260,060</li>
-                    </ul>
-                </div>
-                <div class="btn-info-close"></div>
-            </div>';
-        }
-    ?>                            
-    </div>
-    <div id="container" style="margin-top:100px">
-     
-    <?php
-        for($i=4;$i<8;$i++){
-            $package_info = get_package_information($packages[$i]);
-            $images = get_package_images($packages[$i]);
-            $show = "'".$images[0]."'";
-            echo '<div class="slide anim-in">
-                <div class="image" style="background-image: url('.$show.')"></div>
-                <div class="overlay"></div>
-                <div class="content">
-                    <h1 class="title" data-title="'.$package_info[0].'">'.$package_info[0].'</h1>
+        <div class="slide anim-in">
+            <div class="image" style="background-image: url(./images/img1.jpg)"></div>
+            <div class="overlay"></div>
+            <div class="content">
+                <h1 class="title" data-title="Venice">Venice</h1>
 
-                    <div class="tour-info">
-                        <h3>'.$package_info[1].'</h3>
-                    </div>
-                    <ul class="city-info">
-                    <div class="form-group ">
-                        <a href="http://localhost/hotel/package_info.php?name='.$packages[$i].'" class="btn btn-main btn-block"><p style="color:white">Book Now</p></a>
-                    </div>
-                    </ul>
+                <div class="tour-info">
+                    <h3>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Assumenda accusamus architecto unde dicta aperiam, excepturi vero
+                        molestiae illo earum consequuntur mollitia porro vitae possimus
+                        aspernatur eaque voluptas ducimus. Quidem nostrum sequi iure
+                        corporis placeat deserunt veritatis ducimus illum ullam minima
+                        corrupti quia neque, dolorem omnis aliquid asperiores odit veniam
+                        reprehenderit?
+                    </h3>
                 </div>
-                <div class="btn-info-close"></div>
-            </div>';
-        }
-    ?>                            
+                <ul class="city-info">
+                    <li class="country">Country: Italy</li>
+                    <li class="founded">Founded: 697</li>
+                    <li class="population">Population: 260,060</li>
+                </ul>
+            </div>
+            <div class="btn-info-close"></div>
+        </div>
+        <div class="slide anim-in">
+            <div class="image" style="
+            background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/paris.jpg);
+          "></div>
+            <div class="overlay"></div>
+            <div class="content">
+                <h1 class="title" data-title="Paris">Paris</h1>
+                <div class="emblem" style="
+              background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/french-emblem.svg);
+            "></div>
+                <ul class="city-info">
+                    <li class="country">Country: France</li>
+                    <li class="founded">Founded: ~250BC</li>
+                    <li class="population">Population: 2.2 Million</li>
+                </ul>
+            </div>
+            <div class="btn-info-close"></div>
+        </div>
+        <div class="slide anim-in">
+            <div class="image" style="
+            background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/salzburg.jpg);
+          "></div>
+            <div class="overlay"></div>
+            <div class="content">
+                <h1 class="title" data-title="Salzburg">Salzburg</h1>
+                <div class="emblem" style="
+              background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/austrian-emblem.svg);
+            "></div>
+                <ul class="city-info">
+                    <li class="country">Country: Austria</li>
+                    <li class="founded">Founded: 1622</li>
+                    <li class="population">Population: 145,871</li>
+                </ul>
+            </div>
+            <div class="btn-info-close"></div>
+        </div>
+        <div class="slide anim-in">
+            <div class="image" style="
+            background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/prague.jpg);
+          "></div>
+            <div class="overlay"></div>
+            <div class="content">
+                <h1 class="title" data-title="Prague">Prague</h1>
+                <div class="emblem" style="
+              background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/czech-emblem.svg);
+            "></div>
+                <ul class="city-info">
+                    <li class="country">Country: Czech Republic</li>
+                    <li class="founded">Founded: 870</li>
+                    <li class="population">Population: 1.2 Million</li>
+                </ul>
+            </div>
+            <div class="btn-info-close"></div>
+        </div>
     </div>
-    <a href=""></a>
+    <div id="container">
+    <?php 
+    // include './includes/connect.inc.php';
+    include("includes/functions.php");
+    $conn = new mysqli("localhost","root","","travels","3306");
+    $sql = "SELECT * FROM tour_package";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $package_name=$row["name"];
+            $images=get_package_images($package_name);
+            $i = 0;
+            echo '
+                <div class="slide anim-in">
+                    <div class="image" style="background-image: '.$images[$i].'"></div>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h1 class="title" data-title="'.$row["name"].'">'.$row["name"].'</h1>
+
+                        <div class="tour-info">
+                            <h3>'.$row["description"].'</h3>
+                        </div>
+                        <ul class="city-info">
+                            <li class="country">Country: '.$row["name"].'</li>
+                            <li class="founded">Founded: 697</li>
+                            <li class="population">Population: 260,060</li>
+                        </ul>
+                    </div>
+                    <div class="btn-info-close"></div>
+                </div>';
+            $i++;
+        }
+        echo "</table>";
+        } else {
+        echo "0 results";
+    }
+            
+    ?>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
     </script>
