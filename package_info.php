@@ -11,7 +11,13 @@ echo "<script>console.log('Debug Objects: " . $package_name . "' );</script>";
 
 $package_info=get_package_info($package_name);
 $images=get_package_images($package_name);
-
+$reviews = get_package_reviews($package_name);
+// echo "count($reviews)";
+foreach($reviews as $review)
+{   
+    // echo "review:";
+    echo "<script>console.log('Review: " . $review['title'] . "' );</script>";
+}
 if(!$package_info){
     echo "<script>console.log('Debug Objects: " . "package not found" . "' );</script>";
     $status = "package not found";
@@ -219,40 +225,34 @@ if($images){
                     <div class="reviews">
                         <h3>Reviews</h3>
                     <?php 
-                    // include './includes/connect.inc.php';
-                    $conn = new mysqli("localhost","root","","travels","3306");
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-                    $sql = "SELECT * FROM review";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $i = 0;
+                    foreach($reviews as $review){
+                        $year = mb_substr($review["date_added"], 0, 4);
+                        $month = mb_substr($review["date_added"], 5, 2);
+                        $day = mb_substr($review["date_added"], 8, 2);
                             echo '<div class="review-card">
                                     <div class="review-container">
                                         <div class="title ">
-                                            <h4>'.$row["title"].'</h4>
+                                            <h4>'.$review["title"].'</h4>
                                         </div>
                                         <div class="ratings">
-                                            <h5>'.$row["rating"].'/5 stars</h5>
+                                            <h5>'.$review["rating"].'/5 stars</h5>
 
                                         </div>
                                     </div>
 
                                     <div class="review-description">
-                                        <h6>'.$row["description"].'</h6>
+                                        <h6>'.$review["description"].'</h6>
                                     </div>
                                     <div class="reviewer">
-                                        <h6>- '.$row["username"].' ('.$row["date_added"].')</h6>
+                                        <h6>- '.$review["username"].' ('.$day.'/'.$month.'/'.$year.')</h6>
                                     </div>
                                 </div>';
                             $i++;
                         }
-                        echo "</table>";
-                      } else {
-                        echo "0 results";
-                      }
+                    //     echo "</table>";
+                    //   } else {
+                    //     echo "0 results";
+                    //   }
                         ?>
                         <div class="review-card">
                             <div class="review-container">

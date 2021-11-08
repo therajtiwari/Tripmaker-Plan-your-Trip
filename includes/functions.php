@@ -160,4 +160,15 @@ function get_package_images($package_name){
     
     
 }
+
+
+function get_package_reviews($package_name){
+    $cn=new_conn();
+    
+    $query_id = "select * from review where tour_package_id = (SELECT id FROM `tour_package` WHERE `name` = '$package_name');";
+    $result=mysqli_query($cn,$query_id);
+    $reviews_array=mysqli_fetch_all($result,MYSQLI_ASSOC);
+    return $reviews_array;
+    
+}
 ?>
