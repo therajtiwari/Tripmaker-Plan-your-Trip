@@ -125,7 +125,7 @@ function get_user_details($user_email){
 
 function get_package_info($package_name){
     $cn=new_conn();
-    $query = "SELECT name,description,price_adult,price_child,discount,available_days,total_days,itinerary,rating FROM `tour_package` WHERE `name` = '$package_name'";
+    $query = "SELECT id,name,description,price_adult,price_child,discount,available_days,total_days,itinerary,rating FROM `tour_package` WHERE `name` = '$package_name'";
     // echo $query;
     // echo $query;
     $result=mysqli_query($cn,$query);

@@ -13,13 +13,13 @@ $package_info=get_package_info($package_name);
 $images=get_package_images($package_name);
 $reviews = get_package_reviews($package_name);
 // echo "count($reviews)";
-foreach($reviews as $review)
-{   
-    // echo "review:";
-    echo "<script>console.log('Review: " . $review['title'] . "' );</script>";
-}
+// foreach($reviews as $review)
+// {   
+//     // echo "review:";
+//     echo "<script>console.log('Review: " . $review['title'] . "' );</script>";
+// }
 if(!$package_info){
-    echo "<script>console.log('Debug Objects: " . "package not found" . "' );</script>";
+    // echo "<script>console.log('Debug Objects: " . "package not found" . "' );</script>";
     $status = "package not found";
     header("Location: 404.html");
 }
@@ -27,20 +27,12 @@ else{
     echo "<script>console.log('Debug Objects: " . "package found" . "' );</script>";
     $status = "packageq found";
     // echo "<script>console.log('Debug Objects: " . $package_info . "' );</script>";
-    foreach ($package_info as $key => $value) {
-        # code...
-        echo "<script>console.log('Debug Objects: " .$key ." ". $value . "' );</script>";
-    }
+    // foreach ($package_info as $key => $value) {
+    //     # code...
+    //     echo "<script>console.log('Debug Objects: " .$key ." ". $value . "' );</script>";
+    // }
 
-if($images){
-    echo "<script>console.log('Debug Objects: " . "images found" . "' );</script>";
-    foreach ($images as $key => $value) {
-        # code...
-        echo "<script>console.log('Debug Objects: " .$key ." ". $value . "' );</script>";
-    }
-    echo "<script>console.log('Debug Objects: " .count($images) . "' );</script>";
 
-}
 }
 
     
@@ -193,7 +185,8 @@ if($images){
                         </div>
                         <div class="tour-title">
                             <h3> <?php echo $package_info['name']." Tour" ; ?> </h3>
-                            <h5><?php echo 'Rs '.$package_info["price_adult"].'/adult, '.'Rs '.$package_info["price_child"].'/child'; ?></h5>
+                            <h5><?php echo 'Rs '.$package_info["price_adult"].'/adult, '.'Rs '.$package_info["price_child"].'/child'; ?>
+                            </h5>
                             <?php if($package_info["rating"]){
                                 echo '<h6>Ratings'. $package_info["rating"]. '/5 </h6>';
                             }
@@ -224,7 +217,7 @@ if($images){
                     </div>
                     <div class="reviews">
                         <h3>Reviews</h3>
-                    <?php 
+                        <?php 
                     foreach($reviews as $review){
                         $year = mb_substr($review["date_added"], 0, 4);
                         $month = mb_substr($review["date_added"], 5, 2);
@@ -315,7 +308,6 @@ if($images){
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="booking-box col-md-4">
@@ -323,24 +315,22 @@ if($images){
                         <h3 style="text-align:center">Book Now</h3>
                         <hr>
                         <div class=" form-wrapper">
-                            <form>
+                            <form onsubmit='return false'>
                                 <div class="form-group">
                                     <label for="checkin">Check In</label>
                                     <input type="date" class="form-control" id="checkin" placeholder="Arrival">
                                 </div>
                                 <div class="form-group">
                                     <label for="cuisine">Choice of Cuisine</label>
-                                    <select
-                                    class="form-group form-select last"
-                                    aria-label="Cuisine"
-                                    id="cuisine"
-                                    name="cuisine"
-                                    >
-                                    <!-- <option selected>Open this select menu</option> -->
-                                    <option value="V">Veg</option>
-                                    <option value="N">Non-Veg</option>
-                                    <option value="J">Jain</option>
-                                    </select>    
+                                    <select class="form-group form-select last" aria-label="Cuisine" id="cuisine"
+                                        name="cuisine">
+                                        <!-- <option selected>Open this select menu</option> -->
+                                        <option value="Veg">Veg</option>
+                                        <option value="Non-Veg">Non-Veg</option>
+                                        <option value="Jain">Jain</option>
+                                        <option value="Vegan">Vegan</option>
+
+                                    </select>
                                     <label for="adults">Adults</label>
                                     <select class="form-control" id="adults">
 
@@ -363,17 +353,15 @@ if($images){
                                     </select>
                                 </div>
                                 <div class="total-price">
-                                    <h5>Total Price: Rs 200</h5>
+                                    <h5>Total Price: Rs 0</h5>
                                 </div>
-                                <button type="submit" class="btn btn-warning book-btn">Book</button>
+                                <button id='btn-book' class="btn btn-warning book-btn">Book</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 
 
@@ -420,13 +408,55 @@ if($images){
             $('.total-price').html('Total: Rs ' + total);
 
         }
-        console.log(total);
+
     };
 
     $("#adults").change(changeTotal);
     $("#children").change(changeTotal);
 
     $(document).ready(changeTotal);
+    $('#btn-book').click(function() {
+        var package_name = '<?php echo $package_info['name'] ?>';
+        var checkin = $('#checkin').val();
+        var cuisine = $('#cuisine').val();
+        var adults = $('#adults').val();
+        var children = $('#children').val();
+        var package_id = <?php echo $package_info['id'] ?>;
+        var total = adults * parseInt(<?php echo $package_info['price_adult'] ?>) + children * (parseInt(
+            <?php echo $package_info['price_child'] ?>));
+        var email = '<?php echo $_SESSION['user_email'] ?>';
+        var num_of_days = <?php echo $package_info['total_days'] ?>;
+
+        var discount = 0;
+        if (parseInt(<?php echo $package_info['discount'] ?>) > 0) {
+            discount = parseInt(<?php echo $package_info['discount'] ?>);
+        }
+        if ((adults > 0 || children > 0) && discount) {
+            total_initial = total
+            total = total_initial - (total_initial * (discount / 100));
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        console.log(checkin, cuisine, adults, children, package_id, email, total);
+        if (package_name && checkin && cuisine && adults && package_id && email && total) {
+            console.log("inside")
+            setCookie('package_name', package_name, 1);
+            setCookie('check_in', checkin, 1);
+            setCookie('food_type', cuisine, 1);
+            setCookie('num_of_adults', adults, 1);
+            setCookie('num_of_children', children, 1);
+            setCookie('package_id', package_id, 1);
+            setCookie('price', total, 1);
+            setCookie('email', email, 1);
+            setCookie('num_of_days', num_of_days, 1);
+            window.location.href = "./book.php";
+        }
+    });
     </script>
 
 </body>

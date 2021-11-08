@@ -113,14 +113,14 @@ $packages=get_packages();
                                             $id=$packages[$i]['id'];
                                             echo "<tr>";
                                             echo "<td>".($i+1)."</td>";
-                                            echo "<td><a href='./package_info.php?name=$name'>$name</a></td>";
+                                            echo "<td><a href='./package_info.php?name=$name' target='_blank'>$name</a></td>";
                                             echo "<td>$price_adult</td>";
                                             echo "<td>$price_child</td>";
                                             echo "<td>$discount</td>";
                                             echo "<td>$total_days</td>";
                                             echo "</tr>";
 
-                                            }
+                                            }   
                                             ?>
                                     </tbody>
                                 </table>

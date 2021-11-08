@@ -1,0 +1,29 @@
+.form-card {
+  margin-top: 80px !important;
+  margin: auto;
+  background-color: #f8f9fa !important;
+  /* box-shadow: #8e9194 0px 0px 10px; */
+  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+    rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+  padding: 20px;
+}
+
+hr {
+  display: block;
+  height: 3px !important;
+  border: 0 !important;
+  border-top: 1px solid #b0914f !important;
+  margin: 1 em 0 !important;
+  padding: 0 !important;
+  border-color: #b0914f !important;
+  background-color: #b0914f !important;
+}
+
+.btn-warning {
+  color: #000;
+  background-color: #b0914f !important;
+  border-color: #ffc107 !important;
+  min-height: 50px;
+  width: 80% !important;
+  margin: auto;
+}
