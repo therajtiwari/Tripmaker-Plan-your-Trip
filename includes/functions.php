@@ -177,4 +177,28 @@ function add_booking_order($tour_package_id,$user_id,$no_of_adults,$no_of_childr
 }
     
 
+function get_package_information($package_name){
+    $conn = new mysqli("localhost","root","","travels","3306");
+    $sql = "SELECT * FROM tour_package WHERE name='$package_name'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $package_info[0]=$row["name"];
+            $package_info[1]=$row["description"];
+        };
+    };
+    return $package_info;
+};
+
+function get_packages(){
+    $conn = new mysqli("localhost","root","","travels","3306");
+    $sql = "SELECT * FROM tour_package";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $packages[]=$row["name"];
+        };
+    };
+    return $packages;
+};
 ?>
