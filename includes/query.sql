@@ -131,3 +131,9 @@ INSERT INTO `location_images` (`id`, `link`, `location_id`) VALUES (NULL, 'https
 INSERT INTO `location_images` (`id`, `link`, `location_id`) VALUES (NULL, 'https://www.collinsdictionary.com/images/full/timessquare_99855551_1000.jpg', '28');
 INSERT INTO `location_images` (`id`, `link`, `location_id`) VALUES (NULL, 'https://cdn.britannica.com/95/94195-050-FCBF777E/Golden-Gate-Bridge-San-Francisco.jpg', '29');
 
+INSERT INTO `review` (`username`, `tour_package_id`, `user_id`, `rating`, `title`, `description`, `date_added`) VALUES ('Shreyans', '2', '2', '5', 'Had a Blast', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est impedit optio soluta deleniti doloribus quae atque sequi quisquam a deserunt commodi quod quas voluptates voluptatem accusantium, voluptatibus ex? Cum consectetur aut ratione nesciunt, reprehenderit culpa earum error alias numquam suscipit fugit architecto! Sit repudiandae veritatis expedita, beatae pariatur odio soluta perferendis nobis labore cum ad dicta autem, aperiam iure officia?', current_timestamp());
+INSERT INTO `review` (`username`, `tour_package_id`, `user_id`, `rating`, `title`, `description`, `date_added`) VALUES ('Raj', '2', '2', '5', 'Very Fun', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est impedit optio soluta deleniti doloribus quae atque sequi quisquam a deserunt commodi quod quas voluptates voluptatem accusantium, voluptatibus ex? Cum consectetur aut ratione nesciunt, reprehenderit culpa earum error alias numquam suscipit fugit architecto! Sit repudiandae veritatis expedita, beatae pariatur odio soluta perferendis nobis labore cum ad dicta autem, aperiam iure officia?', current_timestamp());
+
+create TRIGGER update_ratings AFTER insert on review 
+for each row
+update tour_package set tour_package.rating=(select avg(rating) from review where review.tour_package_id=new.tour_package_id) where tour_package.id=new.tour_package_id;
