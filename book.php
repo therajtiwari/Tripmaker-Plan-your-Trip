@@ -6,7 +6,6 @@ session_start();
     if(!isset($_SESSION['user_email']) || !isset($_COOKIE['package_name']) || !isset($_COOKIE['price']) || !isset($_COOKIE['check_in']) || !isset($_COOKIE['food_type']) || !isset($_COOKIE['price']) || !isset($_COOKIE['num_of_adults']) || !isset($_COOKIE['num_of_children'])  || !isset($_COOKIE['num_of_days'])){
         header("Location: index.php");
     }
-
     $user_data=get_user_details($_SESSION['user_email']);
 
 ?>
@@ -135,7 +134,6 @@ session_start();
             <div class="col-md-8 col-sm-10">
                 <h3>Booking Info</h3>
                 <hr>
-
                 <h6>
                     <strong> Package Name:</strong> <?php echo $_COOKIE['package_name'] ?>
                 </h6>
@@ -152,10 +150,20 @@ session_start();
     </div>
 
     <div class="container my-4" style="width:80%">
-        <div class="row justify-content-around">
-            <button class="btn btn-warning">Pay Now</button>
-        </div>
+        <form action="./includes/stripe_pay.php" method="POST">
+            <div class="div" style="text-align:center">
+                <input type="hidden" name="amount" value="<?php echo $_COOKIE['price'] ?>" />
+                <input type="hidden" name="description" value="<?php echo $_COOKIE['package_name'] ?>" />
 
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_51JtYKqSEwXJXrr8JMduWP5TgFWps1ackPZRzQOpf3jizRedAaNwRkKfiu0L93qF1rcwyzzNh7MFxmkxT87do8NjV00kjR8bJ9m"
+                    data-amount=<?php echo $_COOKIE['price']*100 ?>
+                    data-name="<?php echo $_COOKIE["package_name"].' tour'?>"
+                    data-description="<?php echo 'payment for ' .$_COOKIE["package_name"] ?>"
+                    data-image='./img/gallery/02-rome.jpg' data-currency="inr" data-locale="auto">
+                </script>
+            </div>
+        </form>
     </div>
 
     <!-- bootstrap 
@@ -168,58 +176,21 @@ session_start();
         crossorigin="anonymous"></script>
 
 
+
     <script type="text/javascript">
-    $(document).ready(function() {
-        $("#success-alert").hide();
-        $("#danger-alert").hide();
+    $("#pay-button").click(function() {
+        $.ajax({
+            url: "./includes/stripe_pay.php"
+            type: "POST",
+            data: {
+                'stripeToken': token,
+                'stripeEmail': email,
+                'stripeAmount': amount
+            },
 
-        //form submission
-        $(' #submitform').click(
-            function() { // console.log("hereeeeeeeeeeeeeeeee"); var fname=$('#firstname').val();
-                var lname = $('#lastname').val();
-                var phone = $('#inputphone').val();
-                var
-                    address = $('#inputaddress').val();
-                var pincode = $('#pincode').val();
-                var
-                    city = $('#city').val();
-                var country = $('#country').val();
-                var
-                    email =
-                    '<?php echo $_SESSION['user_email'] ?>'; // console.log(fname, lname, phone, address,
-                pincode, city, country, email); $.ajax({
-                url: './includes/update_profile.php',
-                type: 'POST',
-                data: {
-                    update: 'profile',
-                    fname: fname,
-                    lname: lname,
-                    phone: phone,
-                    address: address,
-                    pincode: pincode,
-                    city: city,
-                    country: country,
-                    email: email
-                },
-                success: function(data) {
-                    if (data == "200") {
-                        console.log("success");
-                        $("#success-alert").fadeTo(4000, 500).slideUp(500,
-                            function() {
-                                $("#success-alert").slideUp(500);
-                            });
-                    } else {
-                        console.log("failed");
-                        $("#danger-alert").fadeTo(4000, 500).slideUp(500, function() {
-                            $("#danger-alert").slideUp(500);
-                        });
-                    }
-                }
-            });
         })
-    });
+    })
     </script>
-
 </body>
 
 </html>

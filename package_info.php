@@ -442,9 +442,10 @@ else{
             let expires = "expires=" + d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
+
         console.log(checkin, cuisine, adults, children, package_id, email, total);
         if (package_name && checkin && cuisine && adults && package_id && email && total) {
-            console.log("inside")
+            // console.log("inside")
             setCookie('package_name', package_name, 1);
             setCookie('check_in', checkin, 1);
             setCookie('food_type', cuisine, 1);

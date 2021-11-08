@@ -157,8 +157,6 @@ function get_package_images($package_name){
         // echo "Something went wrong";
         return false;
     }
-    
-    
 }
 
 
@@ -171,4 +169,12 @@ function get_package_reviews($package_name){
     return $reviews_array;
     
 }
+
+function add_booking_order($tour_package_id,$user_id,$no_of_adults,$no_of_children,$total_price,$payment_method,$payment_status){
+    $cn=new_conn();
+    $query = "INSERT INTO `booking_order`(`tour_package_id`, `user_id`, `no_of_adults`, `no_of_children`, `no_of_infants`, `total_price`, `payment_method`, `payment_status`, `payment_date`, `payment_time`) VALUES ('$tour_package_id','$user_id','$no_of_adults','$no_of_children','$no_of_infants','$total_price','$payment_method','$payment_status','$payment_date','$payment_time');";
+    
+}
+    
+
 ?>
