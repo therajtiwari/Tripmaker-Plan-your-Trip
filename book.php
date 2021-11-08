@@ -2,16 +2,12 @@
 
 include("includes/functions.php");
 session_start();
-setcookie("package_name","india", time() + (86400 * 30), "/"); // 86400 = 1 day
 
-
-
-    if(!isset($_SESSION['user_email']) && isset($_COOKIE['user_password'])){
+    if(!isset($_SESSION['user_email']) || !isset($_COOKIE['package_name']) || !isset($_COOKIE['price']) || !isset($_COOKIE['check_in']) || !isset($_COOKIE['food_type']) || !isset($_COOKIE['price']) || !isset($_COOKIE['num_of_adults']) || !isset($_COOKIE['num_of_children'])  || !isset($_COOKIE['num_of_days'])){
         header("Location: index.php");
     }
 
     $user_data=get_user_details($_SESSION['user_email']);
-
 
 ?>
 
