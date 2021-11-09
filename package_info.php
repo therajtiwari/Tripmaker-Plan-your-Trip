@@ -215,6 +215,33 @@ else{
                             </ul>
                         </div>
                     </div>
+                    <br>
+                    <div class="give-review">
+                        <h4>Aleady been on this Tour? Leave Us A Review</h4>
+                        <form id="reviewForm" method="post" action="./review_success.php">
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Title</label>
+                                <textarea class="form-control" id="review_title" rows="1"
+                                    name="Title" placeholder="Give a Short description here"></textarea>
+                                    <br>
+                                <label for="exampleFormControlTextarea1">Description</label>
+                                <textarea class="form-control" id="review_description" rows="3"
+                                    name="Description" placeholder="Give a Detailed description here"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Rating</label>
+                                <select class="form-control" id="review_rating" name="rating">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <button id='btn-review' type="submit" class="btn btn-primary" name="submit">Submit</button>
+
+                        </form>
+                    </div>
                     <div class="reviews">
                         <h3>Reviews</h3>
                         <?php 
@@ -315,7 +342,7 @@ else{
                         <h3 style="text-align:center">Book Now</h3>
                         <hr>
                         <div class=" form-wrapper">
-                            <form onsubmit='return false'>
+                            <form onsubmit='return false' action = "./book.php" method = 'post'>
                                 <div class="form-group">
                                     <label for="checkin">Check In</label>
                                     <input type="date" class="form-control" id="checkin" placeholder="Arrival">
@@ -458,6 +485,28 @@ else{
             window.location.href = "./book.php";
         }
     });
+
+    </script>
+    <script type="text/javascript">
+        $('#btn-review').click(function() {
+            function setCookie(cname, cvalue, exdays) {
+                const d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                let expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+            var title = $('#review_title').val();
+            var description = $('#review_description').val();
+            var rating = $('#review_rating').val();
+            console.log(title, description, rating);
+            if (title && description && cuisine) {
+                console.log("inside")
+                setCookie('review_title',title,1);
+                setCookie('review_description',description,1);
+                setCookie('review_rating',rating,1);
+                window.location.href = "./review_success.php";
+            }
+        });
     </script>
 
 </body>
