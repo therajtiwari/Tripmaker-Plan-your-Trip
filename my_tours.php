@@ -164,18 +164,29 @@ session_start();
 
               for($i=0;$i<count($tour_id);$i++)
               {
-                echo '
-                <div class="tour-card-wrapper">
-                    <div class="tour-card-image-wrapper">
-                        <img src="'.$tour_image[$i].'" alt="">
+                // echo '
+                // <div class="tour-card-wrapper">
+                //     <div class="tour-card-image-wrapper">
+                //         <img src="'.$tour_image[$i].'" alt="">
+                //     </div>
+                //     <div class="tour-card-info-wrapper">
+                //         <div class="tour-card-info-text-wrapper">
+                //             <h4>'.get_package_name_by_id($tour_id[$i])[0].'</h4>
+                //             <h5>'.$tour_date_from[$i].' - '.$tour_date_to[$i].'</h5>
+                //             <h5>'.$tour_adults[$i].' Adults, '.$tour_children[$i].' Children</h5>
+                //             <h5>'.$tour_total_cost[$i].'</h5>';
+              echo '<div class="card-wrapper">
+                    <div class="tour-image-wrapper col-md-6">
+                        <img class="tour-image" src="'.$tour_image[$i].'" alt="">
                     </div>
-                    <div class="tour-card-info-wrapper">
-                        <div class="tour-card-info-text-wrapper">
-                            <h4>'.get_package_name_by_id($tour_id[$i])[0].'</h4>
-                            <h5>'.$tour_date_from[$i].' - '.$tour_date_to[$i].'</h5>
-                            <h5>'.$tour_adults[$i].' Adults, '.$tour_children[$i].' Children</h5>
-                            <h5>'.$tour_total_cost[$i].'</h5>';
-              }
+                    <div class="tour-info col-md-6">
+                        <h2>'.get_package_name_by_id($tour_id[$i])[0].'</h2>
+                        <h5 style="margin-bottom:2rem">'.'Rs '.$tour_total_cost[$i].'</h5>
+                        <h5>'.$tour_date_from[$i].' - '.$tour_date_to[$i].'</h5>
+                        <h5>'.$tour_adults[$i].' Adults, '.$tour_children[$i].' Children</h5>
+                    </div>
+                    </div>';
+            }
             ?>
         </div>
     </header>
