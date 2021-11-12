@@ -161,6 +161,21 @@ session_start();
               } else {
                 echo "0 results";
               }
+
+              for($i=0;$i<count($tour_id);$i++)
+              {
+                echo '
+                <div class="tour-card-wrapper">
+                    <div class="tour-card-image-wrapper">
+                        <img src="'.$tour_image[$i].'" alt="">
+                    </div>
+                    <div class="tour-card-info-wrapper">
+                        <div class="tour-card-info-text-wrapper">
+                            <h4>'.$tour_name[$i].'</h4>
+                            <h5>'.$tour_date_from[$i].' - '.$tour_date_to[$i].'</h5>
+                            <h5>'.$tour_adults[$i].' Adults, '.$tour_children[$i].' Children</h5>
+                            <h5>'.$tour_total_cost[$i].'</h5>';
+              }
             ?>
         </div>
     </header>
