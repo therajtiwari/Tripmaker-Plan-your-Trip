@@ -171,7 +171,7 @@ session_start();
                     </div>
                     <div class="tour-card-info-wrapper">
                         <div class="tour-card-info-text-wrapper">
-                            <h4>'.$tour_name[$i].'</h4>
+                            <h4>'.get_package_name_by_id($tour_id[$i])[0].'</h4>
                             <h5>'.$tour_date_from[$i].' - '.$tour_date_to[$i].'</h5>
                             <h5>'.$tour_adults[$i].' Adults, '.$tour_children[$i].' Children</h5>
                             <h5>'.$tour_total_cost[$i].'</h5>';
