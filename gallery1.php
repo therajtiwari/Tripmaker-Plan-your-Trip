@@ -71,7 +71,7 @@ if ($result->num_rows > 0) {
                                      </a>
                                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                        <li><a class="dropdown-item" href="./user_profile.php">My Profile</a></li>
-                                       <li><a class="dropdown-item" href="#">My Trips</a></li>
+                                       <li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
                                        <li><a class="dropdown-item" href="./includes/logout.php">Logout</a></li>
                                      </ul>
                                    </div>
