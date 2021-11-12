@@ -27,7 +27,7 @@ function add_booking_order(){$conn = mysqli_connect("localhost","root","","trave
   $days = strval($_COOKIE['num_of_days']);
   $date_till = date('Y-m-d', strtotime($date_from. ' + '.$days.' days'));
   $food_type = strval($_COOKIE['food_type']);
-  $query = "INSERT INTO `review`(`username`, `tour_package_id`, `user_id`, `rating`, `title`, `description`,) VALUES ($username,$tour_package_id,$user_id,$rating,$title,$description);";
+  $query = "INSERT INTO `booking`(`tour_package_id`, `user_id`, `cost`, `adults`, `children`, `date_from`, `date_till`, `food_type`) VALUES ($tour_package_id,$user_id,$cost,$adults,$children,$date_from,$date_till,'$food_type');";
   if ($conn->query($query) === TRUE) {
       echo "<script>console.log(Payment Successful);</script>";
     } else {

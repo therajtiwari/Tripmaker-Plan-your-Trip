@@ -160,6 +160,27 @@ function get_package_images($package_name){
 }
 
 
+
+function get_package_name_by_id($package_id){
+    $cn=new_conn();
+    $name;
+    
+    $query_id = "select name from tour_package where id = $package_id;";
+    $result_id=mysqli_query($cn,$query_id);
+    if(mysqli_num_rows($result_id)>0){
+        
+        while($row = $result_id->fetch_assoc()) {
+            $name[]=$row["name"];
+        }
+        return $name;
+    }
+    else{
+        // echo "Something went wrong";
+        return false;
+    }
+}
+
+
 function get_package_reviews($package_name){
     $cn=new_conn();
     
@@ -201,4 +222,61 @@ function get_packages(){
     };
     return $packages;
 };
+
+function get_package_images_by_id($package_id){
+    $cn=new_conn();
+    $images;
+    
+    $query_id = "select link from location_images where location_id in (select id from location where tour_package_id=(SELECT id FROM `tour_package` WHERE `id` = '$package_id'));";
+    $result_id=mysqli_query($cn,$query_id);
+    if(mysqli_num_rows($result_id)>0){
+        
+        while($row = $result_id->fetch_assoc()) {
+            $images[]=$row["link"];
+        }
+        return $images;
+    }
+    else{
+        // echo "Something went wrong";
+        return false;
+    }
+}
+
+function get_package_ap_by_id($package_id){
+    $cn=new_conn();
+    $price_adult;
+    
+    $query_id = "select price_adult from tour_package where id = $package_id;";
+    $result_id=mysqli_query($cn,$query_id);
+    if(mysqli_num_rows($result_id)>0){
+        
+        while($row = $result_id->fetch_assoc()) {
+            $price_adult[]=$row["price_adult"];
+        }
+        return $price_adult;
+    }
+    else{
+        // echo "Something went wrong";
+        return false;
+    }
+}
+
+function get_package_cp_by_id($package_id){
+    $cn=new_conn();
+    $price_child;
+    
+    $query_id = "select price_child from tour_package where id = $package_id;";
+    $result_id=mysqli_query($cn,$query_id);
+    if(mysqli_num_rows($result_id)>0){
+        
+        while($row = $result_id->fetch_assoc()) {
+            $price_child[]=$row["price_child"];
+        }
+        return $price_child;
+    }
+    else{
+        // echo "Something went wrong";
+        return false;
+    }
+}
 ?>
