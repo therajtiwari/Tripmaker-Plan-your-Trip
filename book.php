@@ -152,11 +152,19 @@ session_start();
     <div class="container my-4" style="width:80%">
         <form action="./includes/stripe_pay.php" method="POST">
             <div class="div" style="text-align:center">
-                <input type="hidden" name="amount" value="<?php echo $_COOKIE['price'] ?>" />
+                <input type="hidden" name="cost" value="<?php echo $_COOKIE['price'] ?>" />
+                <input type="hidden" name="user_email" value="<?php echo $_COOKIE['email'] ?>" />
                 <input type="hidden" name="description" value="<?php echo $_COOKIE['package_name'] ?>" />
+                <input type="hidden" name="adults" value="<?php echo $_COOKIE['num_of_adults'] ?>" />
+                <input type="hidden" name="children" value="<?php echo $_COOKIE['num_of_children'] ?>" />
+                <input type="hidden" name="date_from" value="<?php echo $_COOKIE['check_in'] ?>" />
+                <input type="hidden" name="days" value="<?php echo $_COOKIE['num_of_days'] ?>" />
+                <input type="hidden" name="food_type" value="<?php echo $_COOKIE['food_type'] ?>" />
+                <input type="hidden" name="tour_package_id" value="<?php echo $_COOKIE['package_id'] ?>" />
+
 
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="pk_test_51JtYKqSEwXJXrr8JMduWP5TgFWps1ackPZRzQOpf3jizRedAaNwRkKfiu0L93qF1rcwyzzNh7MFxmkxT87do8NjV00kjR8bJ9m"
+                    data-key="pk_test_51JtYKqSEwXJXrr8Jo9kupvKvDZx3X27Hr7Gc8vMKCHWrniHbiiDadg1D4JOy6iPwoE5cAgllV2tqNTRcnktO2LQT00SetbSRkV"
                     data-amount=<?php echo $_COOKIE['price']*100 ?>
                     data-name="<?php echo $_COOKIE["package_name"].' tour'?>"
                     data-description="<?php echo 'payment for ' .$_COOKIE["package_name"] ?>"
