@@ -728,7 +728,7 @@ session_start();
                         <blockquote>'.$feedback['comment'].'
                         </blockquote>
                         <cite><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuV5HnygcU_6oV1CN5LQpxoI6A1k1x_PgoQ&usqp=CAU"
+                                src="'.$feedback['image'].'"
                                 alt="Alberto Duncan">'.$feedback['name'].'</cite>
                     </div>';
                     $feedback=get_feedback_by_id($b);
@@ -736,7 +736,7 @@ session_start();
                         <blockquote>'.$feedback['comment'].'
                         </blockquote>
                         <cite><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuV5HnygcU_6oV1CN5LQpxoI6A1k1x_PgoQ&usqp=CAU"
+                                src="'.$feedback['image'].'"
                                 alt="Alberto Duncan">'.$feedback['name'].'</cite>
                     </div>';
                     $feedback=get_feedback_by_id($c);
@@ -744,7 +744,7 @@ session_start();
                         <blockquote>'.$feedback['comment'].'
                         </blockquote>
                         <cite><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuV5HnygcU_6oV1CN5LQpxoI6A1k1x_PgoQ&usqp=CAU"
+                                src="'.$feedback['image'].'"
                                 alt="Alberto Duncan">'.$feedback['name'].'</cite>
                     </div>';
                     ?>
@@ -1015,7 +1015,7 @@ session_start();
                     </div>
                     <div class="alert alert-success" id="success-alert" style="margin-top:30px">
                         <strong>Success!</strong>
-                        Your profile has been updated
+                        Your Feedback has been submitted.
                     </div>
                     <div class="alert alert-danger" id="danger-alert" style="margin-top:30px">
                         Something went wrong. Please try again.
