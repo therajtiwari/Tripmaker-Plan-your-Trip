@@ -37,6 +37,41 @@ if(isset($_POST['update'])) {
             
     }
 }
+else if(isset($_POST['create'])){
+
+    if(isset($_POST['create'])=="user"){
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        $dob=$_POST['date'];
+        $gender=$_POST['gender'];
+        
+        $cn=new_conn();
+        $sql = "INSERT INTO `user_info` (`fname`, `lname`, `email`,`password`,`dob`,`gender`) VALUES ('$fname', '$lname', '$email',SHA2('$password',256),'$dob','$gender');";
+        $result = mysqli_query($cn,$sql);
+        // echo $result;
+        if($result )
+        {
+            // echo "Record updated successfully";
+            echo "200";
+            // return "200";
+            // return true;
+        }
+        else
+        {
+            echo "Error updating record: " . mysqli_error($cn) .$sql;
+            // return "500";
+            // echo "500";
+            
+            // return false;
+        }
+            
+
+        
+    }
+
+}
 
 
 ?>

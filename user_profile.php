@@ -251,7 +251,7 @@ $status = "";
                 var email = '<?php echo $_SESSION['user_email'] ?>';
                 // console.log(fname, lname, phone, address, pincode, city, country, email);
                 $.ajax({
-                    url: './includes/update_profile.php',
+                    url: './includes/user_actions.php',
                     type: 'POST',
                     data: {
                         update: 'profile',

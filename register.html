@@ -37,10 +37,7 @@
               <div class="mb-4">
                 <h3>Register</h3>
               </div>
-              <form
-                name="registration-form"
-                onsubmit="event.preventDefault(); validateForm();"
-              >
+              <form name="registration-form" onsubmit="return false">
                 <div class="form-group first">
                   <!-- <label for="fname">First Name</label> -->
                   <input
@@ -168,19 +165,39 @@
                   type="submit"
                   value="Register"
                   class="btn btn-block btn-primary"
+                  id="submitform"
                 />
               </form>
+              <div
+                class="alert alert-danger"
+                id="danger-alert"
+                style="margin-top: 30px"
+              >
+                Something went wrong. Please try again.
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+    ></script>
     <script>
+      $(document).ready(function () {
+        $("#danger-alert").hide();
+      });
       function validateForm() {
         var fname = document.forms["registration-form"]["fname"].value;
         var lname = document.forms["registration-form"]["lname"].value;
@@ -191,16 +208,7 @@
         var date = document.forms["registration-form"]["dob"].value;
         var gender = document.forms["registration-form"]["gender"].value;
         var terms = document.forms["registration-form"]["terms"].checked;
-
         console.log("printing");
-        console.log(fname);
-        console.log(lname);
-        console.log(email);
-        console.log(password);
-        console.log(rePassword);
-        console.log(date);
-        console.log(gender);
-        console.log(terms);
 
         var efname =
           (elname =
@@ -297,7 +305,7 @@
           date_error = document.getElementById("dob-error-emp");
           date_error.classList.remove("error-message-hide");
           date_error.classList.add("error-message-visible");
-          console.log(date_error);
+
           edob = false;
         } else {
           date_error = document.getElementById("dob-error-emp");
@@ -359,6 +367,47 @@
           return true;
         }
       }
+
+      $("#submitform").click(function () {
+        var fname = document.forms["registration-form"]["fname"].value;
+        var lname = document.forms["registration-form"]["lname"].value;
+        var email = document.forms["registration-form"]["email"].value;
+        var password = document.forms["registration-form"]["password"].value;
+        var rePassword =
+          document.forms["registration-form"]["re-password"].value;
+        var date = document.forms["registration-form"]["dob"].value;
+        var gender = document.forms["registration-form"]["gender"].value;
+        var terms = document.forms["registration-form"]["terms"].checked;
+        var val = validateForm();
+
+        console.log("ffffff");
+        if (val) {
+          $.ajax({
+            url: "./includes/user_actions.php",
+            type: "POST",
+            data: {
+              create: "user",
+              fname: fname,
+              lname: lname,
+              email: email,
+              password: password,
+              date: date,
+              gender: gender,
+            },
+            success: function (data) {
+              if (data == "200") {
+                window.location.href = "./login.php";
+              } else {
+                $("#danger-alert")
+                  .fadeTo(4000, 500)
+                  .slideUp(500, function () {
+                    $("#danger-alert").slideUp(500);
+                  });
+              }
+            },
+          });
+        }
+      });
     </script>
   </body>
 </html>
