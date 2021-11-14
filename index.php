@@ -390,6 +390,55 @@ session_start();
         <div class="popular">
 
             <div class="popular-slides">
+
+                <?php
+                // include("includes/functions.php");
+                $conn = new mysqli("localhost","root","","travels","3306");
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT * FROM tour_package";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        $package_name=$row["name"];
+                        $images=get_package_images($package_name);
+                        $i = 0;
+                        echo '<div class="owl-carousel">
+                        <div class="tour-card">
+                            <div class="container">
+                                <div class="row">
+                                    <div>
+                                        <div class="card">
+                                            <img class="card-img"
+                                                src="'.$images[$i].'"
+                                                alt="Bologna" />
+                                            <div class="card-img-overlay text-white d-flex flex-column justify-content-end">
+                                                <h4 class="card-title">Bologna</h4>
+                                                <h6 class="card-subtitle mb-2">
+                                                '.$row["name"].'
+                                                </h6>
+                                                <p class="card-text" style="color:white">
+                                                '.$row["description"].'
+                                                </p>
+                                                <div class="link d-flex">
+                                                    <a href="#" class="card-link text-warning">Read More</a>
+                                                    <a href="#" class="card-link text-warning">Book a Trip</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>';
+                        $i++;
+                    }
+                    echo "</table>";
+                } else {
+                    echo "0 results";
+                }
+                ?>
+                                
                 <div class="owl-carousel">
                     <div class="tour-card">
                         <div class="container">
@@ -539,15 +588,70 @@ session_start();
     <section id="galpopular-destinations" style="padding-top: 2rem">
 
         <div class="site-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-md-7 text-center gallery-heading">
-                        <h2 class=" text-black">Our Destinations</h2>
-                        <p class="color-black-opacity-5">Choose Your Next Destination</p>
-                    </div>
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center gallery-heading">
+                    <h2 class=" text-black">Our Destinations</h2>
+                    <p class="color-black-opacity-5">Choose Your Next Destination</p>
                 </div>
+            </div>
                 <div class="row mx-md-5">
-                    <div class="col-md-6 col-lg-4 col-sm-12  mb-lg-6" style="margin-bottom: 3rem !important;">
+                <?php
+                        // include("includes/functions.php");
+                        function get_package_images($package_name){
+                            
+                            $cn = new mysqli("localhost","root","","travels","3306");
+                            if ($cn->connect_error) {
+                                die("Connection failed: " . $cn->connect_error);
+                            }
+                            $images;
+                            
+                            $query_id = "select link from location_images where location_id in (select id from location where tour_package_id=(SELECT id FROM `tour_package` WHERE `name` = '$package_name'));";
+                            $result_id=mysqli_query($cn,$query_id);
+                            if(mysqli_num_rows($result_id)>0){
+                                
+                                while($row = $result_id->fetch_assoc()) {
+                                    $images[]=$row["link"];
+                                }
+                                return $images;
+                            }
+                            else{
+                                // echo "Something went wrong";
+                                return false;
+                            }
+                        }
+                        $conn = new mysqli("localhost","root","","travels","3306");
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM tour_package";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $package_name=$row["name"];
+                                $images=get_package_images($package_name);
+                                $i = 0;
+                                echo '<div class="col-md-6 col-lg-4 col-sm-12  mb-lg-6" style="margin-bottom: 3rem !important;">
+                                <a href="./package_info.php?name='.$row["name"].'" class="unit-1 text-center">
+                                    <img src="'.$images[$i].'" alt="Image"  width="400" height="400"/>
+                                    <div class="unit-1-text">
+                                        <strong class="mb-2 d-block" style="color: var(--primary-y);">&#x20B9;'.$row["price_adult"].'</strong>
+                                        <h3 class="unit-1-heading">'.$row["name"].'</h3>
+                                    </div>
+                                </a>
+                            </div>';
+                            if($i%3==0){
+                                echo '</br>';
+                            }
+                                $i++;
+                            }
+                            echo "</table>";
+                        } else {
+                            echo "0 results";
+                        }
+                        ?>
+            
+                    <!-- <div class="col-md-6 col-lg-4 col-sm-12  mb-lg-6" style="margin-bottom: 3rem !important;">
                         <a href="#" class="unit-1 text-center">
                             <img src="./img/gallery/01-greece.jpg" alt="Image" class="img-fluid" />
                             <div class="unit-1-text">
@@ -601,7 +705,7 @@ session_start();
                                 <h3 class="unit-1-heading">Opera House, Australia</h3>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
