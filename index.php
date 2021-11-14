@@ -994,6 +994,13 @@ session_start();
                             </form>
                         </div>
                     </div>
+                    <div class="alert alert-success" id="success-alert" style="margin-top:30px">
+                        <strong>Success!</strong>
+                        Your profile has been updated
+                    </div>
+                    <div class="alert alert-danger" id="danger-alert" style="margin-top:30px">
+                        Something went wrong. Please try again.
+                    </div>
                 </div>
         </section>
 
@@ -1078,11 +1085,20 @@ session_start();
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
             integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
             crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous">
+        </script>
         <script src="/js/main.js"></script>
         <script src="/js/lightbox-plus-jquery.min.js"></script>
         <script src="/js/app.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            console.log("ready!");
             $("#success-alert").hide();
             $("#danger-alert").hide();
             $('#btn-feedback').click(function() {
@@ -1141,9 +1157,9 @@ session_start();
                             }
                         }
                     });
-                }
+                // }
             });
-        }    
+        });   
     </script>
 </body>
 
