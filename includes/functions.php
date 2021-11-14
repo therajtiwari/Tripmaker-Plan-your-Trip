@@ -82,6 +82,27 @@ function login($email,$password){
     }
     
 }
+function admin_login($email,$password,$is_admin){
+    echo "connect.php";
+    echo "ok";
+    $cn=new_conn();
+    $query = "SELECT * FROM `user_info` WHERE `email` = '$email' AND `password` = SHA2('$password',256) AND `is_admin` = '$is_admin';";
+    $result = mysqli_query($cn,$query);
+    if(mysqli_num_rows($result)>0){
+        $_SESSION['user_email'] = $email;
+        $name;
+        while($row = $result->fetch_assoc()) {
+            $name=$row["fname"] ;
+          }
+        $_SESSION['username'] = $name;
+        header("Location: admin.php");
+        die;
+    }
+    else{
+        echo "Invalid email or password";
+    }
+    
+}
 
 function check_login($cn){
     if(isset($_SESSION['user_email'])){

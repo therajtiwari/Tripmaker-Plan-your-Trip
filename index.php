@@ -933,13 +933,13 @@ session_start();
                         <div class="row justify-content-center">
                             <h2 class="survey-form-heading">We are happy to hear from you</h2>
                             <form class="form-inline" method="POST" action=""
-                                onsubmit="alert( 'Thanks for your feedback')">
+                                onsubmit="return false;">
                                 <div class=" mb-3 row justify-content-between" style="width: 100%;">
                                     <label for="name" class="col-sm-3 col-form-label">
                                         <h5>Name</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <input type="text" class="form-control" id="form-name"
+                                        <input type="text" class="form-control" id="form_name"
                                             placeholder="Your name here">
                                     </div>
                                 </div>
@@ -948,16 +948,16 @@ session_start();
                                         <h5>Email</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <input type="text" class="form-control" id="form-email"
+                                        <input type="text" class="form-control" id="form_email"
                                             placeholder="Your email here">
                                     </div>
                                 </div>
                                 <div class="mb-3 row justify-content-between" style="width: 100%;">
-                                    <label for="email" class="col-sm-3 col-form-label">
+                                    <label for="referral" class="col-sm-3 col-form-label">
                                         <h5>How did you find us?</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" id="form_referral" aria-label="Default select example">
                                             <option selected>Friends</option>
                                             <option value="1">Search Engine</option>
                                             <option value="2">Advertisement</option>
@@ -966,11 +966,11 @@ session_start();
                                     </div>
                                 </div>
                                 <div class="mb-3 row justify-content-between" style="width: 100%;">
-                                    <label for="email" class="col-sm-3 col-form-label">
+                                    <label for="newsletter" class="col-sm-3 col-form-label">
                                         <h5>Newsletter</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8" style="display: flex; align-items:center">
-                                        <input class="form-check-input " type="checkbox" value="" id="flexCheckChecked"
+                                        <input class="form-check-input " type="checkbox" value="" id="form_newslettercheckbox"
                                             checked>
                                         <label class="form-check-label" for="defaultCheck1"
                                             style="padding-left: 10px; padding-top:5px">
@@ -983,13 +983,13 @@ session_start();
                                         <h5>Drop us a line</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        <textarea class="form-control" rows="5" id="form_comment"></textarea>
                                     </div>
                                 </div>
                                 <div class="mb-3 row justify-content-between" style="width: 100%;">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-8 col-md-8">
-                                        <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+                                        <button id='btn-feedback' class="btn btn-primary submit-btn">Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -1082,7 +1082,70 @@ session_start();
         <script src="/js/main.js"></script>
         <script src="/js/lightbox-plus-jquery.min.js"></script>
         <script src="/js/app.js"></script>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#success-alert").hide();
+            $("#danger-alert").hide();
+            $('#btn-feedback').click(function() {
+                console.log('clicked');
+                // function to add item to local storage
+                function addItem(key, value) {
+                    localStorage.setItem(key, value);
+                }
+                function setCookie(cname, cvalue, exdays) {
+                    const d = new Date();
+                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                    let expires = "expires=" + d.toUTCString();
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                }
+                var name = $('#form_name').val();
+                var email = $('#form_email').val();
+                var referral = $('#form_referral').val();
+                // var newsletter = $('#form_newslettercheckbox').val();
+                var comment = $('#form_comment').val();
+                console.log(name, email, referral, comment);
+                // if (name && email && referral && comment) {
+                //     addItem('name', name);
+                //     addItem('email', email);
+                //     addItem('referral', referral);
+                //     // addItem('newsletter', newsletter);
+                //     addItem('comment', comment);
+                //     setCookie('feedback_name', name, 1);
+                //     setCookie('feedback_email', email, 1);
+                //     setCookie('feedback_referral', referral, 1);
+                //     // setCookie('feedback_newsletter', newsletter, 1);
+                //     setCookie('feedback_comment', comment, 1);
+                //     window.location.href = "./feedback_submitted.php";
+                $.ajax({
+                        url: './includes/add_feedback.php',
+                        type: 'POST',
+                        data: {
+                            submit: 'feedback',
+                            name: name,
+                            email: email,
+                            referral: referral,
+                            comment: comment,
+                        },
+                        success: function(data) {
+                            if (data == "200") {
+                                console.log("success");
+                                $("#success-alert").fadeTo(4000, 500).slideUp(500,
+                                    function() {
+                                        $("#success-alert").slideUp(500);
+                                    });
+                            } else {
+                                console.log("failed");
+                                $("#danger-alert").fadeTo(4000, 500).slideUp(500,
+                                    function() {
+                                        $("#danger-alert").slideUp(500);
+                                    });
+                            }
+                        }
+                    });
+                }
+            });
+        }    
+    </script>
 </body>
 
 </html>
