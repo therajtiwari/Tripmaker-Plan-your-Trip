@@ -720,7 +720,26 @@ session_start();
                     <h2 style="text-align: center;margin-bottom:60px">What our customers have to say about us!</h2>
                     <?php
                     include './includes/get_feedback.php';
-                    $feedback=get_feedback();
+                    $a = get_random_number();
+                    $b = get_random_number();
+                    $c = get_random_number();
+                    $feedback=get_feedback_by_id($a);
+                    echo '<div class="col-md-3 mb-4 mb-md-0">
+                        <blockquote>'.$feedback['comment'].'
+                        </blockquote>
+                        <cite><img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuV5HnygcU_6oV1CN5LQpxoI6A1k1x_PgoQ&usqp=CAU"
+                                alt="Alberto Duncan">'.$feedback['name'].'</cite>
+                    </div>';
+                    $feedback=get_feedback_by_id($b);
+                    echo '<div class="col-md-3 mb-4 mb-md-0">
+                        <blockquote>'.$feedback['comment'].'
+                        </blockquote>
+                        <cite><img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuV5HnygcU_6oV1CN5LQpxoI6A1k1x_PgoQ&usqp=CAU"
+                                alt="Alberto Duncan">'.$feedback['name'].'</cite>
+                    </div>';
+                    $feedback=get_feedback_by_id($c);
                     echo '<div class="col-md-3 mb-4 mb-md-0">
                         <blockquote>'.$feedback['comment'].'
                         </blockquote>
@@ -729,7 +748,7 @@ session_start();
                                 alt="Alberto Duncan">'.$feedback['name'].'</cite>
                     </div>';
                     ?>
-                    <div class="col-md-3 mb-4 mb-md-0">
+                    <!-- <div class="col-md-3 mb-4 mb-md-0">
                         <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium harum
                             deleniti
                             illo sunt
@@ -752,7 +771,7 @@ session_start();
                         <cite><img
                                 src="https://img.women.com/images/images/000/170/688/square/screens_shot_0004768.jpg?1549232705"
                                 alt="Alberto Duncan">Jake Peralta</cite>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
