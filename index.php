@@ -718,18 +718,17 @@ session_start();
             <div class="container-fluid align-items-center" style="margin: auto; min-height:40vh">
                 <div class="row justify-content-center ">
                     <h2 style="text-align: center;margin-bottom:60px">What our customers have to say about us!</h2>
-                    <div class="col-md-3 mb-4 mb-md-0">
-                        <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium harum
-                            deleniti
-                            illo sunt
-                            tempore molestias cum facere reiciendis ab ipsa voluptatem ullam, impedit, aut,
-                            necessitatibus repellendus
-                            velit laudantium dolorum et.
+                    <?php
+                    include './includes/get_feedback.php';
+                    $feedback=get_feedback();
+                    echo '<div class="col-md-3 mb-4 mb-md-0">
+                        <blockquote>'.$feedback['comment'].'
                         </blockquote>
                         <cite><img
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuV5HnygcU_6oV1CN5LQpxoI6A1k1x_PgoQ&usqp=CAU"
-                                alt="Alberto Duncan">Alex Hunter</cite>
-                    </div>
+                                alt="Alberto Duncan">'.$feedback['name'].'</cite>
+                    </div>';
+                    ?>
                     <div class="col-md-3 mb-4 mb-md-0">
                         <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium harum
                             deleniti
