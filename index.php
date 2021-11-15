@@ -718,19 +718,37 @@ session_start();
             <div class="container-fluid align-items-center" style="margin: auto; min-height:40vh">
                 <div class="row justify-content-center ">
                     <h2 style="text-align: center;margin-bottom:60px">What our customers have to say about us!</h2>
-                    <div class="col-md-3 mb-4 mb-md-0">
-                        <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium harum
-                            deleniti
-                            illo sunt
-                            tempore molestias cum facere reiciendis ab ipsa voluptatem ullam, impedit, aut,
-                            necessitatibus repellendus
-                            velit laudantium dolorum et.
+                    <?php
+                    include './includes/get_feedback.php';
+                    $a = get_random_number();
+                    $b = get_random_number();
+                    $c = get_random_number();
+                    $feedback=get_feedback_by_id($a);
+                    echo '<div class="col-md-3 mb-4 mb-md-0">
+                        <blockquote>'.$feedback['comment'].'
                         </blockquote>
                         <cite><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuV5HnygcU_6oV1CN5LQpxoI6A1k1x_PgoQ&usqp=CAU"
-                                alt="Alberto Duncan">Alex Hunter</cite>
-                    </div>
-                    <div class="col-md-3 mb-4 mb-md-0">
+                                src="'.$feedback['image'].'"
+                                alt="Alberto Duncan">'.$feedback['name'].'</cite>
+                    </div>';
+                    $feedback=get_feedback_by_id($b);
+                    echo '<div class="col-md-3 mb-4 mb-md-0">
+                        <blockquote>'.$feedback['comment'].'
+                        </blockquote>
+                        <cite><img
+                                src="'.$feedback['image'].'"
+                                alt="Alberto Duncan">'.$feedback['name'].'</cite>
+                    </div>';
+                    $feedback=get_feedback_by_id($c);
+                    echo '<div class="col-md-3 mb-4 mb-md-0">
+                        <blockquote>'.$feedback['comment'].'
+                        </blockquote>
+                        <cite><img
+                                src="'.$feedback['image'].'"
+                                alt="Alberto Duncan">'.$feedback['name'].'</cite>
+                    </div>';
+                    ?>
+                    <!-- <div class="col-md-3 mb-4 mb-md-0">
                         <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium harum
                             deleniti
                             illo sunt
@@ -753,7 +771,7 @@ session_start();
                         <cite><img
                                 src="https://img.women.com/images/images/000/170/688/square/screens_shot_0004768.jpg?1549232705"
                                 alt="Alberto Duncan">Jake Peralta</cite>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -933,13 +951,13 @@ session_start();
                         <div class="row justify-content-center">
                             <h2 class="survey-form-heading">We are happy to hear from you</h2>
                             <form class="form-inline" method="POST" action=""
-                                onsubmit="alert( 'Thanks for your feedback')">
+                                onsubmit="return false;">
                                 <div class=" mb-3 row justify-content-between" style="width: 100%;">
                                     <label for="name" class="col-sm-3 col-form-label">
                                         <h5>Name</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <input type="text" class="form-control" id="form-name"
+                                        <input type="text" class="form-control" id="form_name"
                                             placeholder="Your name here">
                                     </div>
                                 </div>
@@ -948,16 +966,16 @@ session_start();
                                         <h5>Email</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <input type="text" class="form-control" id="form-email"
+                                        <input type="text" class="form-control" id="form_email"
                                             placeholder="Your email here">
                                     </div>
                                 </div>
                                 <div class="mb-3 row justify-content-between" style="width: 100%;">
-                                    <label for="email" class="col-sm-3 col-form-label">
+                                    <label for="referral" class="col-sm-3 col-form-label">
                                         <h5>How did you find us?</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" id="form_referral" aria-label="Default select example">
                                             <option selected>Friends</option>
                                             <option value="1">Search Engine</option>
                                             <option value="2">Advertisement</option>
@@ -966,11 +984,11 @@ session_start();
                                     </div>
                                 </div>
                                 <div class="mb-3 row justify-content-between" style="width: 100%;">
-                                    <label for="email" class="col-sm-3 col-form-label">
+                                    <label for="newsletter" class="col-sm-3 col-form-label">
                                         <h5>Newsletter</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8" style="display: flex; align-items:center">
-                                        <input class="form-check-input " type="checkbox" value="" id="flexCheckChecked"
+                                        <input class="form-check-input " type="checkbox" value="" id="form_newslettercheckbox"
                                             checked>
                                         <label class="form-check-label" for="defaultCheck1"
                                             style="padding-left: 10px; padding-top:5px">
@@ -983,17 +1001,24 @@ session_start();
                                         <h5>Drop us a line</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        <textarea class="form-control" rows="5" id="form_comment"></textarea>
                                     </div>
                                 </div>
                                 <div class="mb-3 row justify-content-between" style="width: 100%;">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-8 col-md-8">
-                                        <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+                                        <button id='btn-feedback' class="btn btn-primary submit-btn">Submit</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    <div class="alert alert-success" id="success-alert" style="margin-top:30px">
+                        <strong>Success!</strong>
+                        Your Feedback has been submitted.
+                    </div>
+                    <div class="alert alert-danger" id="danger-alert" style="margin-top:30px">
+                        Something went wrong. Please try again.
                     </div>
                 </div>
         </section>
@@ -1079,10 +1104,82 @@ session_start();
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
             integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
             crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous">
+        </script>
         <script src="/js/main.js"></script>
         <script src="/js/lightbox-plus-jquery.min.js"></script>
         <script src="/js/app.js"></script>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log("ready!");
+            $("#success-alert").hide();
+            $("#danger-alert").hide();
+            $('#btn-feedback').click(function() {
+                console.log('clicked');
+                // function to add item to local storage
+                function addItem(key, value) {
+                    localStorage.setItem(key, value);
+                }
+                function setCookie(cname, cvalue, exdays) {
+                    const d = new Date();
+                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                    let expires = "expires=" + d.toUTCString();
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                }
+                var name = $('#form_name').val();
+                var email = $('#form_email').val();
+                var referral = $('#form_referral').val();
+                // var newsletter = $('#form_newslettercheckbox').val();
+                var comment = $('#form_comment').val();
+                console.log(name, email, referral, comment);
+                // if (name && email && referral && comment) {
+                //     addItem('name', name);
+                //     addItem('email', email);
+                //     addItem('referral', referral);
+                //     // addItem('newsletter', newsletter);
+                //     addItem('comment', comment);
+                //     setCookie('feedback_name', name, 1);
+                //     setCookie('feedback_email', email, 1);
+                //     setCookie('feedback_referral', referral, 1);
+                //     // setCookie('feedback_newsletter', newsletter, 1);
+                //     setCookie('feedback_comment', comment, 1);
+                //     window.location.href = "./feedback_submitted.php";
+                $.ajax({
+                        url: './includes/add_feedback.php',
+                        type: 'POST',
+                        data: {
+                            submit: 'feedback',
+                            name: name,
+                            email: email,
+                            referral: referral,
+                            comment: comment,
+                        },
+                        success: function(data) {
+                            if (data == "200") {
+                                console.log("success");
+                                $("#success-alert").fadeTo(4000, 500).slideUp(500,
+                                    function() {
+                                        $("#success-alert").slideUp(500);
+                                    });
+                            } else {
+                                console.log("failed");
+                                $("#danger-alert").fadeTo(4000, 500).slideUp(500,
+                                    function() {
+                                        $("#danger-alert").slideUp(500);
+                                    });
+                            }
+                        }
+                    });
+                // }
+            });
+        });   
+    </script>
 </body>
 
 </html>

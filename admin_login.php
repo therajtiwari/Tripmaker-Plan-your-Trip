@@ -2,14 +2,15 @@
 include('./includes/functions.php');
 session_start();
 
-if(isset($_SESSION['user_email'])){
-  header('Location: index.php');
+if(isset($_SESSION['admin_email'])){
+  header('Location: admin.php');
 }
 if(isset($_POST['submit'])){
   $email = $_POST['email'];
   $password = $_POST['password'];
+  $is_admin=true;
   // echo $email;
-  login($email, $password);
+  admin_login($email, $password, $is_admin);
 }
 
 ?>
@@ -36,7 +37,7 @@ if(isset($_POST['submit'])){
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-7">
                         <div class="mb-4">
-                            <h3>Login</h3>
+                            <h3>Admin Login</h3>
                         </div>
                         <form method="POST" submit="return validateLogin()">
                             <div class="form-group">
@@ -65,14 +66,10 @@ if(isset($_POST['submit'])){
                             </button>
                             <br />
                         </form>
-                        <p>
+                        <!-- <p>
                             Don't Have an Account?
                             <a href="./register.html">Register Now</a>
-                        </p>
-                        <p>
-                            Login as 
-                            <a href="./admin_login.php">Admin</a>
-                        </p>
+                        </p> -->
                     </div>
                 </div>
             </div>
