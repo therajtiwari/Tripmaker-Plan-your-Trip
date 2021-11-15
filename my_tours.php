@@ -105,7 +105,8 @@ session_start();
             <!-- <h4 style="font-size:1.2rem;color:var(--primary-y);font-weight:bold">Your Tours and Packages</h4>
             <h2 style="font-size:2rem;font-weight:bold;margin-top:0.5rem,">Find all the Tours and packages booked by you bellow
             </h2> -->
-            <h2 style="font-size:1.2rem;color:var(--primary-y);font-weight:bold">Find all the Tours and packages booked by you bellow
+            <h2 style="font-size:1.2rem;color:var(--primary-y);font-weight:bold">Find all the Tours and packages booked
+                by you bellow
             </h2>
             <!-- <h5 style="font-size:0.9rem;margin-top:0.2rem;width:50%">Far far away, behind the word mountains, far from
                 the
@@ -113,7 +114,7 @@ session_start();
                 Consonantia, there live the
                 blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</h5> -->
         </div>
-        
+
         <div class="tour-cards-wrapper">
             <?php 
             $email = $_SESSION['user_email'];
@@ -134,7 +135,7 @@ session_start();
                 echo "0 results";
               }
             // echo $user_id;
-            $sql2 = "SELECT * FROM booking WHERE `user_id` = $user_id";
+            $sql2 = "SELECT * FROM booking WHERE `user_id` = $user_id order by booking_time desc";
             $result = $conn->query($sql2);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
@@ -164,17 +165,7 @@ session_start();
 
               for($i=0;$i<count($tour_id);$i++)
               {
-                // echo '
-                // <div class="tour-card-wrapper">
-                //     <div class="tour-card-image-wrapper">
-                //         <img src="'.$tour_image[$i].'" alt="">
-                //     </div>
-                //     <div class="tour-card-info-wrapper">
-                //         <div class="tour-card-info-text-wrapper">
-                //             <h4>'.get_package_name_by_id($tour_id[$i])[0].'</h4>
-                //             <h5>'.$tour_date_from[$i].' - '.$tour_date_to[$i].'</h5>
-                //             <h5>'.$tour_adults[$i].' Adults, '.$tour_children[$i].' Children</h5>
-                //             <h5>'.$tour_total_cost[$i].'</h5>';
+               
               echo '<div class="card-wrapper">
                     <div class="tour-image-wrapper col-md-6">
                         <img class="tour-image" src="'.$tour_image[$i].'" alt="">

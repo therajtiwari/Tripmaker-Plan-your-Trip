@@ -150,10 +150,11 @@ session_start();
                         </h3>
                         <p class="animate__animated animate__fadeIn" style="animation-delay: 3s">
                             <br />
-                            <button type="button" class="contact-button btn btn-primary btn-lg"
-                                style="background-color: var(--primary-y) !important;border-color: var(--primary-y) !important">
+
+                            <a type="button" class="contact-button btn btn-primary btn-lg" href="./all_tours.php"
+                                style="background-color: var(--primary-y) !important;border-color: var(--primary-y) !important;border-radius:5px">
                                 Book Now
-                            </button>
+                            </a>
                         </p>
                     </div>
                 </div>
@@ -174,10 +175,10 @@ session_start();
                         </h3>
                         <p class="animate__animated animate__fadeIn" style="animation-delay: 3s">
                             <br />
-                            <button type="button" class="contact-button btn btn-primary btn-lg"
-                                style="background-color: var(--primary-y) !important;border-color: var(--primary-y) !important">
+                            <a type="button" class="contact-button btn btn-primary btn-lg" href="./all_tours.php"
+                                style="background-color: var(--primary-y) !important;border-color: var(--primary-y) !important;border-radius:5px">
                                 Book Now
-                            </button>
+                            </a>
                         </p>
                     </div>
                 </div>
@@ -197,10 +198,10 @@ session_start();
                         </h3>
                         <p class="animate__animated animate__fadeIn" style="animation-delay: 2s">
                             <br />
-                            <button type="button" class="contact-button btn btn-primary btn-lg"
-                                style=" background-color: var(--primary-y) !important;border-color: var(--primary-y) !important">
+                            <a type="button" class="contact-button btn btn-primary btn-lg" href="./all_tours.php"
+                                style=" background-color: var(--primary-y) !important;border-color: var(--primary-y) !important;border-radius:5px">
                                 Book Now
-                            </button>
+                            </a>
                         </p>
                     </div>
                 </div>
@@ -223,7 +224,7 @@ session_start();
 
 
 
-    <section id="booking" class="booking-form">
+    <!-- <section id="booking" class="booking-form">
         <div class="container booking-form-wrapper justify-content-center">
             <div class="row p-5 ">
                 <form action="#" class="reserve-form">
@@ -291,7 +292,7 @@ session_start();
             </div>
         </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="welcome-info" style="padding: 2rem 0rem;padding-top:150px">
         <div class="container-fluid" style="margin: auto;">
@@ -382,11 +383,7 @@ session_start();
 
 
     <section id="popular-tours" style="padding: 2rem 0rem">
-        <div>
-            <div class="heading" style="margin-top: 2rem;">
-                <h3>Most Popular Tours</h3>
-            </div>
-        </div>
+
         <div class="popular">
 
             <div class="popular-slides">
@@ -438,7 +435,7 @@ session_start();
                     echo "0 results";
                 }
                 ?>
-                                
+
                 <div class="owl-carousel">
                     <div class="tour-card">
                         <div class="container">
@@ -588,15 +585,15 @@ session_start();
     <section id="galpopular-destinations" style="padding-top: 2rem">
 
         <div class="site-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-7 text-center gallery-heading">
-                    <h2 class=" text-black">Our Destinations</h2>
-                    <p class="color-black-opacity-5">Choose Your Next Destination</p>
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-md-7 text-center gallery-heading">
+                        <h2 class=" text-black">Our Destinations</h2>
+                        <p class="color-black-opacity-5">Choose Your Next Destination</p>
+                    </div>
                 </div>
-            </div>
                 <div class="row mx-md-5">
-                <?php
+                    <?php
                         // include("includes/functions.php");
                         function get_package_images($package_name){
                             
@@ -650,7 +647,7 @@ session_start();
                             echo "0 results";
                         }
                         ?>
-            
+
                     <!-- <div class="col-md-6 col-lg-4 col-sm-12  mb-lg-6" style="margin-bottom: 3rem !important;">
                         <a href="#" class="unit-1 text-center">
                             <img src="./img/gallery/01-greece.jpg" alt="Image" class="img-fluid" />
@@ -950,8 +947,7 @@ session_start();
                     <div class="col-md-7 col-sm-11" style="padding: 1rem 1.5rem;">
                         <div class="row justify-content-center">
                             <h2 class="survey-form-heading">We are happy to hear from you</h2>
-                            <form class="form-inline" method="POST" action=""
-                                onsubmit="return false;">
+                            <form class="form-inline" method="POST" action="" onsubmit="return false;">
                                 <div class=" mb-3 row justify-content-between" style="width: 100%;">
                                     <label for="name" class="col-sm-3 col-form-label">
                                         <h5>Name</h5>
@@ -975,7 +971,8 @@ session_start();
                                         <h5>How did you find us?</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8">
-                                        <select class="form-select" id="form_referral" aria-label="Default select example">
+                                        <select class="form-select" id="form_referral"
+                                            aria-label="Default select example">
                                             <option selected>Friends</option>
                                             <option value="1">Search Engine</option>
                                             <option value="2">Advertisement</option>
@@ -988,8 +985,8 @@ session_start();
                                         <h5>Newsletter</h5>
                                     </label>
                                     <div class="col-sm-8 col-md-8" style="display: flex; align-items:center">
-                                        <input class="form-check-input " type="checkbox" value="" id="form_newslettercheckbox"
-                                            checked>
+                                        <input class="form-check-input " type="checkbox" value=""
+                                            id="form_newslettercheckbox" checked>
                                         <label class="form-check-label" for="defaultCheck1"
                                             style="padding-left: 10px; padding-top:5px">
                                             Yes, please!
@@ -1085,7 +1082,7 @@ session_start();
 
                     <h6 style="color:white;text-align:center"> Made with <span
                             style="color: red;">&#10084;&#65039</span> By Raj
-                        Tiwari </h6>
+                        Tiwari & Shreyans Mulkutkar</h6>
                 </div>
             </div>
         </footer>
@@ -1115,7 +1112,7 @@ session_start();
         <script src="/js/main.js"></script>
         <script src="/js/lightbox-plus-jquery.min.js"></script>
         <script src="/js/app.js"></script>
-    <script type="text/javascript">
+        <script type="text/javascript">
         $(document).ready(function() {
             console.log("ready!");
             $("#success-alert").hide();
@@ -1126,6 +1123,7 @@ session_start();
                 function addItem(key, value) {
                     localStorage.setItem(key, value);
                 }
+
                 function setCookie(cname, cvalue, exdays) {
                     const d = new Date();
                     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -1151,35 +1149,35 @@ session_start();
                 //     setCookie('feedback_comment', comment, 1);
                 //     window.location.href = "./feedback_submitted.php";
                 $.ajax({
-                        url: './includes/add_feedback.php',
-                        type: 'POST',
-                        data: {
-                            submit: 'feedback',
-                            name: name,
-                            email: email,
-                            referral: referral,
-                            comment: comment,
-                        },
-                        success: function(data) {
-                            if (data == "200") {
-                                console.log("success");
-                                $("#success-alert").fadeTo(4000, 500).slideUp(500,
-                                    function() {
-                                        $("#success-alert").slideUp(500);
-                                    });
-                            } else {
-                                console.log("failed");
-                                $("#danger-alert").fadeTo(4000, 500).slideUp(500,
-                                    function() {
-                                        $("#danger-alert").slideUp(500);
-                                    });
-                            }
+                    url: './includes/add_feedback.php',
+                    type: 'POST',
+                    data: {
+                        submit: 'feedback',
+                        name: name,
+                        email: email,
+                        referral: referral,
+                        comment: comment,
+                    },
+                    success: function(data) {
+                        if (data == "200") {
+                            console.log("success");
+                            $("#success-alert").fadeTo(4000, 500).slideUp(500,
+                                function() {
+                                    $("#success-alert").slideUp(500);
+                                });
+                        } else {
+                            console.log("failed");
+                            $("#danger-alert").fadeTo(4000, 500).slideUp(500,
+                                function() {
+                                    $("#danger-alert").slideUp(500);
+                                });
                         }
-                    });
+                    }
+                });
                 // }
             });
-        });   
-    </script>
+        });
+        </script>
 </body>
 
 </html>

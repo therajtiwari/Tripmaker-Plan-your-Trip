@@ -221,12 +221,12 @@ else{
                         <form id="reviewForm" method="post" action="./review_success.php">
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Title</label>
-                                <textarea class="form-control" id="review_title" rows="1"
-                                    name="Title" placeholder="Give a Short description here"></textarea>
-                                    <br>
+                                <textarea class="form-control" id="review_title" rows="1" name="Title"
+                                    placeholder="Give a Short description here"></textarea>
+                                <br>
                                 <label for="exampleFormControlTextarea1">Description</label>
-                                <textarea class="form-control" id="review_description" rows="3"
-                                    name="Description" placeholder="Give a Detailed description here"></textarea>
+                                <textarea class="form-control" id="review_description" rows="3" name="Description"
+                                    placeholder="Give a Detailed description here"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Rating</label>
@@ -245,95 +245,44 @@ else{
                     <div class="reviews">
                         <h3>Reviews</h3>
                         <?php 
-                    foreach($reviews as $review){
-                        $year = mb_substr($review["date_added"], 0, 4);
-                        $month = mb_substr($review["date_added"], 5, 2);
-                        $day = mb_substr($review["date_added"], 8, 2);
-                            echo '<div class="review-card">
-                                    <div class="review-container">
-                                        <div class="title ">
-                                            <h4>'.$review["title"].'</h4>
-                                        </div>
-                                        <div class="ratings">
-                                            <h5>'.$review["rating"].'/5 stars</h5>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="review-description">
-                                        <h6>'.$review["description"].'</h6>
-                                    </div>
-                                    <div class="reviewer">
-                                        <h6>- '.$review["username"].' ('.$day.'/'.$month.'/'.$year.')</h6>
-                                    </div>
-                                </div>';
-                            $i++;
+                        if(count($reviews)>0){
+                            foreach($reviews as $review){
+                                $year = mb_substr($review["date_added"], 0, 4);
+                                $month = mb_substr($review["date_added"], 5, 2);
+                                $day = mb_substr($review["date_added"], 8, 2);
+                                    echo '<div class="review-card">
+                                            <div class="review-container">
+                                                <div class="title ">
+                                                    <h4>'.$review["title"].'</h4>
+                                                </div>
+                                                <div class="ratings">
+                                                    <h5>'.$review["rating"].'/5 stars</h5>
+        
+                                                </div>
+                                            </div>
+        
+                                            <div class="review-description">
+                                                <h6>'.$review["description"].'</h6>
+                                            </div>
+                                            <div class="reviewer">
+                                                <h6>- '.$review["username"].' ('.$day.'/'.$month.'/'.$year.')</h6>
+                                            </div>
+                                        </div>';
+                                    $i++;
+                                }
                         }
+                        else{
+                            echo '<h5>No Reviews Yet!</h5>';
+                        }
+        
+                        
+                    
                     //     echo "</table>";
                     //   } else {
                     //     echo "0 results";
                     //   }
                         ?>
-                        <div class="review-card">
-                            <div class="review-container">
-                                <div class="title ">
-                                    <h4>Great Place and great Service</h4>
-                                </div>
-                                <div class="ratings">
-                                    <h5>4.5/5 stars</h5>
 
-                                </div>
-                            </div>
-
-                            <div class="review-description">
-                                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est impedit
-                                    optio soluta
-                                    deleniti doloribus quae atque sequi quisquam a deserunt commodi quod
-                                    quas voluptates
-                                    voluptatem accusantium, voluptatibus ex? Cum consectetur aut ratione
-                                    nesciunt,
-                                    reprehenderit culpa earum error alias numquam suscipit fugit architecto!
-                                    Sit
-                                    repudiandae
-                                    veritatis expedita, beatae pariatur odio soluta perferendis nobis labore
-                                    cum ad
-                                    dicta
-                                    autem, aperiam iure officia?</h6>
-                            </div>
-                            <div class="reviewer">
-                                <h6>- John Doe (09 May 2019)</h6>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-container">
-                                <div class="title ">
-                                    <h4>Great Place and great Service</h4>
-                                </div>
-                                <div class="ratings">
-                                    <h5>4.5/5 stars</h5>
-
-                                </div>
-                            </div>
-
-                            <div class="review-description">
-                                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est impedit
-                                    optio soluta
-                                    deleniti doloribus quae atque sequi quisquam a deserunt commodi quod
-                                    quas voluptates
-                                    voluptatem accusantium, voluptatibus ex? Cum consectetur aut ratione
-                                    nesciunt,
-                                    reprehenderit culpa earum error alias numquam suscipit fugit architecto!
-                                    Sit
-                                    repudiandae
-                                    veritatis expedita, beatae pariatur odio soluta perferendis nobis labore
-                                    cum ad
-                                    dicta
-                                    autem, aperiam iure officia?</h6>
-                            </div>
-                            <div class="reviewer">
-                                <h6>- John Doe (09 May 2019)</h6>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -342,13 +291,13 @@ else{
                         <h3 style="text-align:center">Book Now</h3>
                         <hr>
                         <div class=" form-wrapper">
-                            <form onsubmit='return false' action = "./book.php" method = 'post'>
+                            <form onsubmit='return false' action="./book.php" method='post'>
                                 <div class="form-group">
                                     <label for="checkin">Check In</label>
                                     <input type="date" class="form-control" id="checkin" placeholder="Arrival">
                                 </div>
                                 <div class="form-group">
-                                    <label for="cuisine">Choice of Cuisine</label>
+                                    <label for="cuisine">Choice of Food</label>
                                     <select class="form-group form-select last" aria-label="Cuisine" id="cuisine"
                                         name="cuisine">
                                         <!-- <option selected>Open this select menu</option> -->
@@ -485,28 +434,27 @@ else{
             window.location.href = "./book.php";
         }
     });
-
     </script>
     <script type="text/javascript">
-        $('#btn-review').click(function() {
-            function setCookie(cname, cvalue, exdays) {
-                const d = new Date();
-                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-                let expires = "expires=" + d.toUTCString();
-                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-            }
-            var title = $('#review_title').val();
-            var description = $('#review_description').val();
-            var rating = $('#review_rating').val();
-            console.log(title, description, rating);
-            if (title && description && cuisine) {
-                console.log("inside")
-                setCookie('review_title',title,1);
-                setCookie('review_description',description,1);
-                setCookie('review_rating',rating,1);
-                window.location.href = "./review_success.php";
-            }
-        });
+    $('#btn-review').click(function() {
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        var title = $('#review_title').val();
+        var description = $('#review_description').val();
+        var rating = $('#review_rating').val();
+        console.log(title, description, rating);
+        if (title && description && cuisine) {
+            console.log("inside")
+            setCookie('review_title', title, 1);
+            setCookie('review_description', description, 1);
+            setCookie('review_rating', rating, 1);
+            window.location.href = "./review_success.php";
+        }
+    });
     </script>
 
 </body>
