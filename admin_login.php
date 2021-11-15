@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
   $password = $_POST['password'];
   $is_admin=true;
   // echo $email;
-  admin_login($email, $password, $is_admin);
+  login($email, $password, $is_admin);
 }
 
 ?>

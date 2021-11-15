@@ -724,9 +724,13 @@ session_start();
                     <h2 style="text-align: center;margin-bottom:60px">What our customers have to say about us!</h2>
                     <?php
                     include './includes/get_feedback.php';
-                    $a = get_random_number();
-                    $b = get_random_number();
-                    $c = get_random_number();
+                    $n = three_random_number();
+                    // $a = get_random_number();
+                    // $b = get_random_number();
+                    // $c = get_random_number();
+                    $a = $n[0];
+                    $b = $n[1];
+                    $c = $n[2];
                     $feedback=get_feedback_by_id($a);
                     echo '<div class="col-md-3 mb-4 mb-md-0">
                         <blockquote>'.$feedback['comment'].'
@@ -935,9 +939,9 @@ session_start();
             </div>
             <div class="gallery-text">
                 <!-- <h1>Gallery</h1> -->
-                <button>
+                <a href="./gallery.php"><button> 
                     <h2>Gallery</h2>
-                </button>
+                </button></a>
             </div>
         </section>
 
