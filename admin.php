@@ -2,6 +2,11 @@
 
 include("includes/admin_functions.php");
 
+session_start();
+if(!isset($_SESSION['is_admin']) || ($_SESSION['is_admin']!=1)){
+    header('Location: index.php');
+  }
+
 $total_orders = get_total_orders();
 
 $total_users=get_total_users();
