@@ -77,7 +77,12 @@ function login($email,$password){
           }
         $_SESSION['username'] = $name;
         $_SESSION['is_admin'] = $is_admin;
-        header("Location: index.php");
+        if($is_admin == 1){
+            header("Location: admin.php"); 
+        } else {
+            header("Location: index.php");
+        }
+        // header("Location: index.php");
         die;
     }
     else{
