@@ -77,6 +77,8 @@ else{
     <div class="navbar-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid ms-auto">
+
+
                 <a class="navbar-brand" href="./index.php"
                     style="color: var(--primary-y);font-weight:600;">TripMaker</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -114,7 +116,12 @@ else{
                                      </a>
                                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                        <li><a class="dropdown-item" href="./user_profile.php">My Profile</a></li>
-                                       <li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
+                                       ';
+                                       if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1)
+                                       {
+                                           echo '<li><a class="dropdown-item" href="./admin.php">Admin Dashboard</a></li>';
+                                       }
+                                       echo '<li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
                                        <li><a class="dropdown-item" href="./includes/logout.php">Logout</a></li>
                                      </ul>
                                    </div>

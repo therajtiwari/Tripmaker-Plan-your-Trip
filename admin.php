@@ -18,7 +18,7 @@ $recent_bookings=get_recent_bookings();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <title>cms dashboard</title>
+    <title>Admin</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!----css3---->
@@ -43,7 +43,8 @@ $recent_bookings=get_recent_bookings();
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>
-                    <img src="img/logo.png" class="img-fluid" /><span>Travels</span>
+                    <img class="img-fluid" src="./images/logo.png" /><span><a href="./index.php">TripMaker</a></span>
+
                 </h3>
             </div>
             <ul class="list-unstyled components">
@@ -137,7 +138,7 @@ $recent_bookings=get_recent_bookings();
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">quiz</i> Weekly sales
+                                    <i class="material-icons">quiz</i> Weekly Profits
                                 </div>
                             </div>
                         </div>

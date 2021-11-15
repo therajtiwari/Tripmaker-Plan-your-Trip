@@ -64,6 +64,7 @@ body {
 }
 
 .card-wrapper {
+  padding: 1rem;
   margin: 3rem auto;
   width: 60%;
   display: flex;
@@ -74,6 +75,8 @@ body {
   /* border: #b0914f solid 1px; */
   background: rgba(240, 240, 240, 0.4);
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  max-height: 350px;
+  min-height: 350px;
 }
 
 .tour-image {

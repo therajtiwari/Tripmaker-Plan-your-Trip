@@ -3,7 +3,9 @@
 <?php
 include './includes/functions.php';
 $packages = get_packages();
+session_start();
 ?>
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,6 +24,8 @@ $packages = get_packages();
     <div class="navbar-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid ms-auto">
+
+
                 <a class="navbar-brand" href="./index.php"
                     style="color: var(--primary-y);font-weight:600;">TripMaker</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -59,7 +63,12 @@ $packages = get_packages();
                                      </a>
                                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                        <li><a class="dropdown-item" href="./user_profile.php">My Profile</a></li>
-                                       <li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
+                                       ';
+                                       if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1)
+                                       {
+                                           echo '<li><a class="dropdown-item" href="./admin.php">Admin Dashboard</a></li>';
+                                       }
+                                       echo '<li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
                                        <li><a class="dropdown-item" href="./includes/logout.php">Logout</a></li>
                                      </ul>
                                    </div>
@@ -90,8 +99,8 @@ $packages = get_packages();
 
 
     <div id="container" style="margin-top:100px">
-     
-    <?php
+
+        <?php
         for($i=0;$i<4;$i++){
             $package_info = get_package_information($packages[$i]);
             $images = get_package_images($packages[$i]);
@@ -114,11 +123,11 @@ $packages = get_packages();
                 <div class="btn-info-close"></div>
             </div>';
         }
-    ?>                            
+    ?>
     </div>
     <div id="container" style="margin-top:100px">
-     
-    <?php
+
+        <?php
         for($i=4;$i<8;$i++){
             $package_info = get_package_information($packages[$i]);
             $images = get_package_images($packages[$i]);
@@ -127,21 +136,21 @@ $packages = get_packages();
                 <div class="image" style="background-image: url('.$show.')"></div>
                 <div class="overlay"></div>
                 <div class="content">
-                    <h1 class="title" data-title="'.$package_info[0].'">'.$package_info[0].'</h1>
+                    <h1 class="title"  data-title="'.$package_info[0].'">'.$package_info[0].'</h1>
 
                     <div class="tour-info">
                         <h3>'.$package_info[1].'</h3>
                     </div>
                     <ul class="city-info">
-                    <div class="form-group ">
-                        <a href="http://localhost/hotel/package_info.php?name='.$packages[$i].'" class="btn btn-main btn-block"><p style="color:white">Book Now</p></a>
-                    </div>
+                        <li class="country">'.$package_info[0].'</li>
+                        <li class="founded">Founded: 697</li>
+                        <li class="population">Population: 260,060</li>
                     </ul>
                 </div>
                 <div class="btn-info-close"></div>
             </div>';
         }
-    ?>                            
+    ?>
     </div>
     <a href=""></a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"

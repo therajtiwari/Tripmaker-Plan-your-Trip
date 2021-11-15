@@ -70,10 +70,13 @@ function login($email,$password){
     if(mysqli_num_rows($result)>0){
         $_SESSION['user_email'] = $email;
         $name;
+        $is_admin;
         while($row = $result->fetch_assoc()) {
             $name=$row["fname"] ;
+            $is_admin=$row["is_admin"] ;
           }
         $_SESSION['username'] = $name;
+        $_SESSION['is_admin'] = $is_admin;
         header("Location: index.php");
         die;
     }

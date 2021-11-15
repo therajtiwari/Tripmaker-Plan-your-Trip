@@ -37,6 +37,8 @@ session_start();
         <div class="navbar-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid ms-auto">
+
+
                     <a class="navbar-brand" href="./index.php"
                         style="color: var(--primary-y);font-weight:600;">TripMaker</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -74,7 +76,12 @@ session_start();
                                      </a>
                                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                        <li><a class="dropdown-item" href="./user_profile.php">My Profile</a></li>
-                                       <li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
+                                       ';
+                                       if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1)
+                                       {
+                                           echo '<li><a class="dropdown-item" href="./admin.php">Admin Dashboard</a></li>';
+                                       }
+                                       echo '<li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
                                        <li><a class="dropdown-item" href="./includes/logout.php">Logout</a></li>
                                      </ul>
                                    </div>
@@ -106,7 +113,7 @@ session_start();
             <h2 style="font-size:2rem;font-weight:bold;margin-top:0.5rem,">Find all the Tours and packages booked by you bellow
             </h2> -->
             <h2 style="font-size:1.2rem;color:var(--primary-y);font-weight:bold">Find all the Tours and packages booked
-                by you bellow
+                by you below
             </h2>
             <!-- <h5 style="font-size:0.9rem;margin-top:0.2rem;width:50%">Far far away, behind the word mountains, far from
                 the
@@ -160,13 +167,13 @@ session_start();
                 }
                 echo "</table>";
               } else {
-                echo "0 results";
+                echo "<h4> 0 results </h4>";
               }
 
               for($i=0;$i<count($tour_id);$i++)
               {
                
-              echo '<div class="card-wrapper">
+              echo '<div class="card-wrapper style="color:blue;text-align:center;padding:200px">
                     <div class="tour-image-wrapper col-md-6">
                         <img class="tour-image" src="'.$tour_image[$i].'" alt="">
                     </div>
@@ -194,10 +201,14 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous"></script>
+
     <!-- bootstrap -->
 </body>
 

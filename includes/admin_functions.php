@@ -39,7 +39,7 @@ function update_user_details($email,$fname,$lname,$phone,$address,$city,$pincode
 function get_total_orders(){
     
     $cn=new_conn();
-    $sql = "SELECT * FROM `booking`";
+    $sql = "SELECT * FROM `booking` where booking_time > now() - interval 1 week";
     $result = mysqli_query($cn,$sql);
     $total_orders = mysqli_num_rows($result);
     return $total_orders;
@@ -57,7 +57,7 @@ function get_total_users(){
 function get_total_profit(){
     
     $cn=new_conn();
-    $sql = "SELECT sum(cost) FROM `booking`";
+    $sql = "SELECT sum(cost) FROM `booking` where booking_time > now() - interval 1 week";
     $result = mysqli_query($cn,$sql);
     $total_profits_array = mysqli_fetch_array($result);
     // echo $total_profits_array[0];

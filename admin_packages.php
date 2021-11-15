@@ -39,15 +39,15 @@ $packages=get_packages();
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>
-                    <img src="img/logo.png" class="img-fluid" /><span>Travels</span>
+                    <img class="img-fluid" src="./images/logo.png" /><span><a href="./index.php">TripMaker</a></span>
                 </h3>
             </div>
             <ul class="list-unstyled components">
-                <li class>
+                <li class="active">
                     <a href="./admin.php" class="dashboard"><i
                             class="material-icons">dashboard</i><span>Dashboard</span></a>
                 </li>
-                <li class="active">
+                <li class="">
                     <a href="./admin_packages.php"><i
                             class="material-icons">featured_play_list</i><span>Packages</span></a>
                 </li>

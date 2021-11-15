@@ -37,6 +37,8 @@ session_start();
         <div class="navbar-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid ms-auto">
+
+
                     <a class="navbar-brand" href="./index.php"
                         style="color: var(--primary-y);font-weight:600;">TripMaker</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -74,7 +76,12 @@ session_start();
                                      </a>
                                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                        <li><a class="dropdown-item" href="./user_profile.php">My Profile</a></li>
-                                       <li><a class="dropdown-item" href="#">My Trips</a></li>
+                                       ';
+                                       if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1)
+                                       {
+                                           echo '<li><a class="dropdown-item" href="./admin.php">Admin Dashboard</a></li>';
+                                       }
+                                       echo '<li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
                                        <li><a class="dropdown-item" href="./includes/logout.php">Logout</a></li>
                                      </ul>
                                    </div>
@@ -243,9 +250,11 @@ session_start();
 
 
 
-    <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

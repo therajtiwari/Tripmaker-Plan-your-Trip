@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,7 +106,10 @@
         <div class="navbar-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid ms-auto">
-                    <a class="navbar-brand" href="index.php">TripMaker</a>
+
+
+                    <a class="navbar-brand" href="./index.php"
+                        style="color: var(--primary-y);font-weight:600;">TripMaker</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -111,10 +118,10 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                                <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./includes">About</a>
+                            <li class=" nav-item">
+                                <a class="nav-link" href="#welcome-info">About</a>
                             </li>
 
                             <li class="nav-item">
@@ -126,10 +133,38 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="./all_tours.php">All Tours</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./login.html">Login</a>
-                            </li>
 
+                            <li class="nav-item">
+                                <?php
+                                if(isset($_SESSION['user_email']))
+                                {
+                                     echo '
+                                     <div class="dropdown">
+                                     <a class="btn dropdown-toggle nav-link"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                       Hi, '.$_SESSION['username'].'
+                                     </a>
+                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                       <li><a class="dropdown-item" href="./user_profile.php">My Profile</a></li>
+                                       ';
+                                       if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1)
+                                       {
+                                           echo '<li><a class="dropdown-item" href="./admin.php">Admin Dashboard</a></li>';
+                                       }
+                                       echo '<li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
+                                       <li><a class="dropdown-item" href="./includes/logout.php">Logout</a></li>
+                                     </ul>
+                                   </div>
+                                    ';
+                                // echo '<a class="nav-link" href="./includes/logout.php">Logout</a>';
+                                }
+                                else
+                                {
+                                   
+                                echo '<a class="nav-link" href="./login.php">Login</a>';
+                                }
+                               
+                            ?>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -310,9 +345,12 @@
 
 
 
-    <!-- bootstrap -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

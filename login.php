@@ -70,7 +70,7 @@ if(isset($_POST['submit'])){
                             <a href="./register.html">Register Now</a>
                         </p>
                         <p>
-                            Login as 
+                            Login as
                             <a href="./admin_login.php">Admin</a>
                         </p>
                     </div>

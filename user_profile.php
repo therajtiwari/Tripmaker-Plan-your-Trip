@@ -64,6 +64,8 @@ $status = "";
     <div class="navbar-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid ms-auto">
+
+
                 <a class="navbar-brand" href="./index.php"
                     style="color: var(--primary-y);font-weight:600;">TripMaker</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -81,29 +83,13 @@ $status = "";
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#gallery">Gallery</a>
+                            <a class="nav-link" href="./gallery.php">Gallery</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./blog.php">Blogs</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Quick Book
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#booking">USA</a></li>
-                                <li>
-                                    <a class="dropdown-item" href="#booking">India</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#booking"> France</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#booking"> Australia</a>
-                                </li>
-
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./all_tours.php">All Tours</a>
                         </li>
 
                         <li class="nav-item">
@@ -117,7 +103,12 @@ $status = "";
                                      </a>
                                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                        <li><a class="dropdown-item" href="./user_profile.php">My Profile</a></li>
-                                       <li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
+                                       ';
+                                       if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1)
+                                       {
+                                           echo '<li><a class="dropdown-item" href="./admin.php">Admin Dashboard</a></li>';
+                                       }
+                                       echo '<li><a class="dropdown-item" href="./my_tours.php">My Trips</a></li>
                                        <li><a class="dropdown-item" href="./includes/logout.php">Logout</a></li>
                                      </ul>
                                    </div>
