@@ -170,21 +170,23 @@ session_start();
                 echo "<h4> 0 results </h4>";
               }
 
-              for($i=0;$i<count($tour_id);$i++)
-              {
-               
-              echo '<div class="card-wrapper style="color:blue;text-align:center;padding:200px">
-                    <div class="tour-image-wrapper col-md-6">
-                        <img class="tour-image" src="'.$tour_image[$i].'" alt="">
-                    </div>
-                    <div class="tour-info col-md-6">
-                        <h2>'.get_package_name_by_id($tour_id[$i])[0].'</h2>
-                        <h5 style="margin-bottom:2rem">'.'Rs '.$tour_total_cost[$i].'</h5>
-                        <h5>'.$tour_date_from[$i].' - '.$tour_date_to[$i].'</h5>
-                        <h5>'.$tour_adults[$i].' Adults, '.$tour_children[$i].' Children</h5>
-                    </div>
-                    </div>';
-            }
+              if($result->num_rows > 0){
+                for($i=0;$i<count($tour_id);$i++)
+                {
+                 
+                echo '<div class="card-wrapper style="color:blue;text-align:center;padding:200px">
+                      <div class="tour-image-wrapper col-md-6">
+                          <img class="tour-image" src="'.$tour_image[$i].'" alt="">
+                      </div>
+                      <div class="tour-info col-md-6">
+                          <h2>'.get_package_name_by_id($tour_id[$i])[0].'</h2>
+                          <h5 style="margin-bottom:2rem">'.'Rs '.$tour_total_cost[$i].'</h5>
+                          <h5>'.$tour_date_from[$i].' - '.$tour_date_to[$i].'</h5>
+                          <h5>'.$tour_adults[$i].' Adults, '.$tour_children[$i].' Children</h5>
+                      </div>
+                      </div>';
+              }
+              }
             ?>
         </div>
     </header>
