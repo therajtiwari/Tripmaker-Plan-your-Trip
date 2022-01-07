@@ -43,7 +43,7 @@ $packages=get_packages();
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>
-                    <img class="img-fluid" src="./images/logo.png" /><span><a href="./index.php">TripMaker</a></span>
+                    <img class="img-fluid" src="./img/logo.png" /><span><a href="./index.php">TripMaker</a></span>
                 </h3>
             </div>
             <ul class="list-unstyled components">
