@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
                 </div>
             </div>
         </div>
-        <div class="bg order-1 order-md-1" style="background-image: url('./images/img5.jpg')"></div>
+        <div class="bg order-1 order-md-1" style="background-image: url('./img/login/login_image.jpg')"></div>
     </div>
 
     <script>

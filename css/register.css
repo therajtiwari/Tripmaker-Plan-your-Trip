@@ -243,7 +243,11 @@ h2 {
   font-size: 20px;
   color: #b13232 !important;
   visibility: visible;
-  /* position: absolute; */
-  /* bottom: -30px; */
-  /* text-align: center; */
+}
+
+@media screen and (max-width: 600px) {
+  .bg-image {
+    max-height: 400px !important;
+    object-fit: cover;
+  }
 }

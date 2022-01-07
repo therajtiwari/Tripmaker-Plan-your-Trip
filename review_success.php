@@ -27,6 +27,7 @@ function submit_review(){$conn = mysqli_connect("localhost","root","","travels",
 }
 submit_review();
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,7 +44,8 @@ submit_review();
         <div class="row">
             <div class="col-md-8">
                 <h3>Your Review is Submitted Successful!</h3>
-                <h4>Thank You for travelling with us. <a href="./all_tours.php">Try Our Other Packages</a> For more fun.</h4>
+                <h4>Thank You for travelling with us. <a href="./all_tours.php">Try our other Packages</a> for more fun.
+                </h4>
             </div>
         </div>
     </div>

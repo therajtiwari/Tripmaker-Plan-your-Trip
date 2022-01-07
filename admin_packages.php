@@ -203,8 +203,11 @@ $packages=get_packages();
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
 
+
+
     <script type="text/javascript">
     $(document).ready(function() {
+        console.log("heloooooooooo");
         $("#success-alert").hide();
         $("#danger-alert").hide();
         $("#sidebarCollapse").on("click", function() {
