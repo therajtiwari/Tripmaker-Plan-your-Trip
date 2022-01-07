@@ -129,14 +129,9 @@ session_start();
             </nav>
         </div>
 
-
-
-
-
         <!-- carousel -->
 
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-
 
             <!-- Wrapper for slides -->
 
@@ -939,9 +934,9 @@ session_start();
             </div>
             <div class="gallery-text">
                 <!-- <h1>Gallery</h1> -->
-                <a href="./gallery.php"><button> 
-                    <h2>Gallery</h2>
-                </button></a>
+                <a href="./gallery.php"><button>
+                        <h2>Gallery</h2>
+                    </button></a>
             </div>
         </section>
 
@@ -963,61 +958,60 @@ session_start();
                                     <label for="name" class="col-sm-3 col-form-label">
                                         <h5>Name</h5>
                                     </label>
-                                    <div class="col-sm-8 col-md-8">
+                                    <di class="col-sm-8 col-md-8">
                                         <input type="text" class="form-control" id="form_name"
                                             placeholder="Your name here">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row justify-content-between" style="width: 100%;">
-                                    <label for="email" class="col-sm-3 col-form-label">
-                                        <h5>Email</h5>
-                                    </label>
-                                    <div class="col-sm-8 col-md-8">
-                                        <input type="text" class="form-control" id="form_email"
-                                            placeholder="Your email here">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row justify-content-between" style="width: 100%;">
-                                    <label for="referral" class="col-sm-3 col-form-label">
-                                        <h5>How did you find us?</h5>
-                                    </label>
-                                    <div class="col-sm-8 col-md-8">
-                                        <select class="form-select" id="form_referral"
-                                            aria-label="Default select example">
-                                            <option selected>Friends</option>
-                                            <option value="1">Search Engine</option>
-                                            <option value="2">Advertisement</option>
-                                            <option value="3">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="mb-3 row justify-content-between" style="width: 100%;">
-                                    <label for="newsletter" class="col-sm-3 col-form-label">
-                                        <h5>Newsletter</h5>
-                                    </label>
-                                    <div class="col-sm-8 col-md-8" style="display: flex; align-items:center">
-                                        <input class="form-check-input " type="checkbox" value=""
-                                            id="form_newslettercheckbox" checked>
-                                        <label class="form-check-label" for="defaultCheck1"
-                                            style="padding-left: 10px; padding-top:5px">
-                                            Yes, please!
+                                    </di </div>
+                                    <div class="mb-3 row justify-content-between" style="width: 100%;">
+                                        <label for="email" class="col-sm-3 col-form-label">
+                                            <h5>Email</h5>
                                         </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <input type="text" class="form-control" id="form_email"
+                                                placeholder="Your email here">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3 row justify-content-between" style="width: 100%;">
-                                    <label for="email" class="col-sm-3 col-form-label">
-                                        <h5>Drop us a line</h5>
-                                    </label>
-                                    <div class="col-sm-8 col-md-8">
-                                        <textarea class="form-control" rows="5" id="form_comment"></textarea>
+                                    <div class="mb-3 row justify-content-between" style="width: 100%;">
+                                        <label for="referral" class="col-sm-3 col-form-label">
+                                            <h5>How did you find us?</h5>
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <select class="form-select" id="form_referral"
+                                                aria-label="Default select example">
+                                                <option selected>Friends</option>
+                                                <option value="1">Search Engine</option>
+                                                <option value="2">Advertisement</option>
+                                                <option value="3">Other</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3 row justify-content-between" style="width: 100%;">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-8 col-md-8">
-                                        <button id='btn-feedback' class="btn btn-primary submit-btn">Submit</button>
+                                    <div class="mb-3 row justify-content-between" style="width: 100%;">
+                                        <label for="newsletter" class="col-sm-3 col-form-label">
+                                            <h5>Newsletter</h5>
+                                        </label>
+                                        <div class="col-sm-8 col-md-8" style="display: flex; align-items:center">
+                                            <input class="form-check-input " type="checkbox" value=""
+                                                id="form_newslettercheckbox" checked>
+                                            <label class="form-check-label" for="defaultCheck1"
+                                                style="padding-left: 10px; padding-top:5px">
+                                                Yes, please!
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="mb-3 row justify-content-between" style="width: 100%;">
+                                        <label for="email" class="col-sm-3 col-form-label">
+                                            <h5>Drop us a line</h5>
+                                        </label>
+                                        <div class="col-sm-8 col-md-8">
+                                            <textarea class="form-control" rows="5" id="form_comment"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row justify-content-between" style="width: 100%;">
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-8 col-md-8">
+                                            <button id='btn-feedback' class="btn btn-primary submit-btn">Submit</button>
+                                        </div>
+                                    </div>
                             </form>
                         </div>
                     </div>
